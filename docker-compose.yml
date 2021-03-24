@@ -1,0 +1,80 @@
+version: '3'
+
+services:
+
+    php:
+        build: 
+            context: '.docker/php/'
+            args:
+                PHP_VERSION: ${PHP_VERSION}
+        networks:
+            - backend
+        volumes:
+            - ${PROJECT_ROOT}/:/var/www/html/
+            - .php/php.ini:/usr/local/etc/php/php.ini
+        environment:
+            - ALLOW_OVERRIDE=true
+            - ENV=${PHPENV} #retirer cette ligne en production
+            - XDEBUG_CONFIG="xdebug.idekey='VSCODE'"
+            - MAILDEV_HOST=maildev
+        depends_on:
+            - maildev
+        extra_hosts:
+            - host.docker.internal:${DOCKER0_IP}
+  
+    apache:
+        build:
+            context: '.docker/apache/'
+            args:
+                APACHE_VERSION: ${APACHE_VERSION}
+        depends_on:
+            - php
+            - mariadb
+        networks:
+            - frontend
+            - backend
+        ports:
+            - "8000:80"
+        volumes:
+            - ${PROJECT_ROOT}/:/var/www/html/
+        
+
+    mariadb:
+        image: mariadb:${MARIADB_VERSION:-latest}
+        volumes:
+            - mariadb-data:/var/lib/mysql
+        networks:
+            - backend
+        environment:
+            TZ: "Europe/Paris"
+            MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+            MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
+            MYSQL_DATABASE: "${DB_NAME}"
+            MYSQL_USER: "${DB_USERNAME}"
+            MYSQL_PASSWORD: "${DB_PASSWORD}"
+            
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin:latest
+        ports: 
+            - "8001:80"
+        environment:
+            - PMA_HOST=mariadb
+        networks:
+            - backend
+        depends_on:
+            - mariadb
+        
+    maildev:
+        image: maildev/maildev
+        ports:
+            - "1080:80"
+        networks:
+            - backend
+            
+volumes:
+    mariadb-data:
+
+  
+networks:
+    frontend:
+    backend:
