@@ -9,7 +9,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="author" href="{{ site.theme.link }}/humans.txt"/>
 		<link rel="pingback" href="{{ site.pingback_url }}"/>
-		<link rel="profile" href="http://gmpg.org/xfn/11">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
 		{{function('wp_head')}}
 	</head>
 
@@ -17,29 +17,14 @@
 	<body>
         <header class="header">
         	<div class="topbar">
-        		<div class="logo">
-        			<a href="index.html">
-        				<i class="fas fa-genderless"></i>
-        			</a>
-        		</div>
-        		<nav class="menu">
-        			<a href="realisations.html" class="menu-item">Réalisations</a>
-        			<a href="#about" class="menu-item">À propos</a>
-        			<a href="contact.html" class="menu-item menu-button">Me contacter</a>
-        		</nav>
+				{{function('wp_nav_menu', {theme_location: 'logo', container: true, menu_class: 'logo'})}}
+				{{function('wp_nav_menu', {theme_location: 'header', container: false})}}
         	</div>
-        	<div class="baseline reveal">
-        		<div
-        			class="baseline-body reveal-1">
-        			<strong class="baseline-name">
-        				<span></span>Pol Carré</strong>
-        		</div>
-        		<span class="baseline-slogan reveal-2">Développeur Web PHP Backend</span>
-        	</div>
+			{% block welcome %}
+			{% endblock %}
         </header>
 		<main>
        {% block main %}
-           
        {% endblock %}
 			
 			<!-- Back to Top link -->
@@ -48,16 +33,15 @@
 			</div>
 		</main>
 
+
         {% block footer %}
-        	<footer class="footer reveal" id="footer">
+			{% if (homepage is not defined) or (homepage != true) %}
+			{% set light = 'light' %}
+			{% endif %}
+        	<footer class="footer {{light}} reveal" id="footer">
         		<div class="container">
         			<div class="footer-links reveal-1">
-        				<a class="social-icon" href="">
-        					<i class="fab fa-linkedin"></i>
-        				</a>
-        				<a class="social-icon" href="">
-        					<i class="fab fa-github"></i>
-        				</a>
+						{{function('wp_nav_menu', {theme_location: 'footer', container: true, menu_class: ''})}}
         			</div>
         		</div>
         	</footer>

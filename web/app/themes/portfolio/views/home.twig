@@ -1,0 +1,69 @@
+{% extends "/layouts/base.twig" %}
+
+{% block welcome %}
+<div class="baseline reveal">
+	<div class="baseline-body reveal-1">
+		<strong class="baseline-name">
+			<span></span>
+			{{post.custom['welcome-title']}}</strong>
+	</div>
+	<span class="baseline-slogan reveal-2">{{post.custom['welcome-subtitle']}}</span>
+</div>
+
+{% endblock %}
+
+
+{% block main %}
+
+<section class="home-section light">
+	<div class="container-small">
+		<div class="block">
+			<div class="block-body reveal">
+				<h2 class="title reveal-3">
+                    <span>{{post.custom['skills-title']}}</span>
+                    {{post.custom['skills-subtitle']}}
+                </h2>
+				<p class="reveal-4">
+                    {{post.custom['skills-text'] | raw}}
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="work reveal" id="work">
+	<div class="container">
+		<h2 class="title reveal-1">
+			<span>{{post.custom['works-title']}}</span>
+			{{post.custom['works-subtitle']}}
+		</h2>
+
+		<div class="work-highlight reveal-2" id="work-highlight">
+		{% for work in highlightedWorks %}
+
+			{% include "parts/card.twig" %}
+
+		{% endfor %}
+
+		</div>
+	</div>
+</section>
+
+<section class="cv-section light" id="about">
+	<div class="container-small">
+		<div class="block">
+			<div class="block-body reveal">
+				<h2 class="title reveal-1">
+					<span>{{post.custom['about-title']}}</span>
+					{{post.custom['about-subtitle']}}
+				</h2>
+				<div class="reveal-2">
+					{{ post.custom['about-text']|  trimextrabr | raw  | nl2br }}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+    
+{% endblock %}

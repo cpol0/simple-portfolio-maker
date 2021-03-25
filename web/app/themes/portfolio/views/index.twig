@@ -1,7 +1,20 @@
 {% extends "/layouts/base.twig" %}
 
+{% block welcome %}
+<div class="baseline reveal">
+	<div class="baseline-body reveal-1">
+		<strong class="baseline-name">
+			<span></span>
+			{{post.custom['welcome-title']}}</strong>
+	</div>
+	<span class="baseline-slogan reveal-2">{{post.custom['welcome-subtitle']}}</span>
+</div>
+
+{% endblock %}
+
+
 {% block main %}
 
-Coucou
+
     
 {% endblock %}

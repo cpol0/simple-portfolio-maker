@@ -1,0 +1,63 @@
+{% extends "/layouts/base.twig" %}
+
+{% block main %}
+
+
+{# 	<img src="{{post.thumbnail.src }}">
+<figure>
+<img src="{{post.thumbnail.src }}"
+alt="{{post.title }}"
+>
+<figcaption>{{post.post_excerpt}}</figcaption>
+
+</figure> #}
+
+{# attention avec cette fonctionnalité, voir vidéo à 18:00 https://grafikart.fr/tutoriels/wordpress-timber-1308#autoplay#}
+
+
+
+<section class="work reveal" id="work">
+	<div class="container">
+		<h2 class="title reveal-1"><span>{{post.custom['subtitle']}}</span>{{post.title}}</h2>
+
+		{% for i in 0..(constant('Portfolio\\ACFfields\\Work::MAX_BLOCK_ALLOWED')-1) %}
+			{% set blockType = post.custom["type#{i}"] %}
+			{% set title = post.custom["title#{i}"] %}
+			{% set body = post.custom["block#{i}"] %}
+
+			{% set class = 'work-block' | col(blockType) | reveal(i) %}
+			<div class="{{class}}">
+				{% include "parts/block.twig" %}
+			</div>
+		{% endfor %}
+
+		<div class="work-block mosaic">
+			{% set imageLg = Image(post.custom['mosaic-image-large']) %}
+			{% set imageSm1 = Image(post.custom['mosaic-image-small-1']) %}
+			{% set imageSm2 = Image(post.custom['mosaic-image-small-2']) %}
+
+			<img src="{{ imageLg.src('mosaic-large')}}" alt="{{imageLg.alt}}">
+			<img src="{{ imageSm1.src('mosaic-small')}}" alt="{{imageSm1.alt}}">
+			<img src="{{ imageSm2.src('mosaic-small')}}" alt="{{imageSm2.alt}}">
+		</div>
+		<div>
+			<h3 class="subtitle">Technologies mises en oeuvre</h3>
+			{{post.custom['tags'] | technotags | raw}}
+		</div>
+	</div>
+</section>
+
+<div>
+	<div class="container">
+		<div class="work-block">		
+			<a class="back-to-index-link fas fa-chevron-left" href="{{post.custom['work-index'].url}}">
+			{{post.custom['work-index'].title}}</a>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+{% endblock %}

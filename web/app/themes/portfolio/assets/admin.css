@@ -1,0 +1,22 @@
+
+.manage-column.column-highlight-work {
+    width: 150px;
+    text-align: center;
+}
+
+.column-highlight-work {
+    vertical-align: middle!important;
+    text-align: center;
+}
+.column-highlight-work .bullet {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background:lightgreen;
+    border: 1px solid lightgreen;
+}
+.column-highlight-work .bullet-no {
+    background: transparent;
+    border: 1px solid black;
+}

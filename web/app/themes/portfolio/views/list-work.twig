@@ -1,0 +1,26 @@
+{% extends "/layouts/base.twig" %}
+
+{% block main %}
+
+<section class="work light" id="work">
+	<div class="container">
+		<h2 class="title reveal-1">
+            <span>{{archivePage.post_title}}</span>
+            {{subtitle}}
+        </h2>
+
+		<div class="work-highlight reveal-2" id="work-highlight">
+
+        {% for work in archives %}
+
+            {% include "parts/card.twig" %}
+
+        {% endfor %}
+			
+		</div>
+	</div>
+</section>
+
+
+
+{% endblock %}

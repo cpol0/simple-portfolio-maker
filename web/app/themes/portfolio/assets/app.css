@@ -54,6 +54,12 @@ img {
 .logo {
     display: block;
     margin-bottom: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu {
+    padding: 0;
 }
 
 .menu-item{
@@ -66,9 +72,14 @@ img {
     color: #C89446;
 }
 
+.logo .menu-item{
+    padding: 0;
+}
+
 .menu-button{
     border: solid 1px #C89446;
     border-radius: 3px;
+    transition: color .3s;
     transition-property: color, background-color;
     margin-top: 5px;
 }
@@ -191,6 +202,10 @@ img {
 }
 
 .more {
+    position: absolute;
+    right: 0;
+    left:0;
+    bottom: 20px;
     color: #C89446;
     transition-property: color, background-color;
     text-align: center;
@@ -237,6 +252,7 @@ img {
 }
 
 .work-highlight-item{
+    position: relative;
     background-color: #23466d;
     padding-bottom: 30px;
     margin-bottom: 50px;
@@ -246,6 +262,13 @@ img {
 .work-highlight-item:hover{
     border-bottom: solid 3px #C89446;
     margin-bottom: calc(110px - 3px); /* default margin bottom - 3px of border to avoid scintillation */
+}
+
+.work-highlight-item:hover .more{
+    bottom: calc(20px + 1px);
+}
+.work-highlight-item:last-child:hover .more{
+    bottom: calc(20px + 0px); /* dirty bugfix :-( */
 }
 
 .work-highlight-head{
@@ -314,6 +337,7 @@ img {
     max-width: 625px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 40px;
 }
 
 .button {
@@ -401,6 +425,7 @@ i {
 
 .social-icon{
     margin: 0 5px;
+    padding: 0;
 }
 
 .section-overflow {
@@ -597,7 +622,7 @@ input:focus,textarea:focus{
 }
 
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 650px) {
     html {
         font-size: 1.1rem;
     }
@@ -611,7 +636,8 @@ input:focus,textarea:focus{
     }
 
     .logo{
-        margin-bottom: 0;
+       /*  margin-bottom: 0;
+        padding: 0; */
         color: #C89446;
         transition: all .5s;
     }
@@ -708,6 +734,7 @@ input:focus,textarea:focus{
     .work-highlight p {
         margin: 0;
         padding-bottom: 1rem;
+        margin-bottom: 40px;
     }
 
     .form-name {
@@ -778,9 +805,9 @@ input:focus,textarea:focus{
         list-style: none;
     }
 
-    .footer ul li::before {
+/*     .footer ul li::before {
         content: '- ';
-    }
+    } */
 
     .footer-links{
         padding: 30px 0;

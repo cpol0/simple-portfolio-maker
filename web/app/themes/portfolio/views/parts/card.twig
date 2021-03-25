@@ -1,0 +1,15 @@
+<div class="work-highlight-item">
+	<div class="work-highlight-head">
+		<img src="{{ work.thumbnail.src('large') }}" alt="Image for {{ work.title }}" class="work-highlight-img">
+	</div>
+	<div class="work-highlight-body">
+		<div class="work-highlight-tag">
+			{{work.custom['techno'] | raw}}</div>
+
+		<h3 class="work-highlight-title">{{work.title}}</h3>
+		<p>{{work.preview.read_more(false)}}</p>
+	</div>
+	<div class="more">
+		<a href="{{work.link}}" class="see-button">Voir plus</a>
+	</div>
+</div>

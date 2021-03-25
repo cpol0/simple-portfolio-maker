@@ -1,0 +1,45 @@
+{% if blockType == 'fulltext' %}
+
+	{{title | setTitle | raw}}
+    <div>{{body |  trimextrabr | raw  | nl2br }}</div>
+
+{% elseif  blockType == 'blocktextright'%}
+
+	{% set datas = cutOffBody(body) %}
+	{% set image = Image(datas.img) %}
+
+	<div>
+		<img src="{{ image.src('block')}}" alt="{{image.alt}}">
+	</div>
+	<div>
+		{{title | setTitle | raw}}
+        <div>{{datas.text | trimextrabr | raw  | nl2br}}</div>
+	</div>
+
+{% elseif  blockType == 'blocktextleft'%}
+
+    {% set datas = cutOffBody(body) %}
+    {% set image = Image(datas.img) %}
+
+    <div>
+    	{{title | setTitle | raw}}
+        <div>{{datas.text | trimextrabr | raw  | nl2br}}</div>
+    </div>
+
+    <div>
+    	<img src="{{ image.src('block')}}" alt="{{image.alt}}">
+    </div>
+
+
+{% elseif  blockType == '2textcolumns'%}
+
+    <div>
+        {{title | setTitle | raw}}
+        <div>{{body | trimextrabr | raw  | nl2br}}</div>
+    </div>
+    <div>
+        {% set bodyRightColumn = post.custom["block#{i}-secondtextcolumn"] %}
+        <div>{{bodyRightColumn  | trimextrabr | raw  | nl2br}}</div>
+    </div>
+
+{% endif %}
