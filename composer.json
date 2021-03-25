@@ -4,6 +4,12 @@
   "license": "MIT",
   "description": "WordPress boilerplate with modern development tools, easier configuration, and an improved folder structure",
   "homepage": "https://roots.io/bedrock/",
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/",
+      "Portfolio\\": "web/app/themes/portfolio/src"
+    }
+  },
   "authors": [
     {
       "name": "Scott Walkinshaw",

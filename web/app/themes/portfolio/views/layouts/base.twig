@@ -1,0 +1,68 @@
+<!doctype html>
+<html class="no-js no-svg" {{ site.language_attributes }}> 
+	<head>
+		<title>{{site.title}}</title>
+		<meta charset="{{ site.charset }}"/>
+		<meta name="description" content="{{ site.description }}">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="author" href="{{ site.theme.link }}/humans.txt"/>
+		<link rel="pingback" href="{{ site.pingback_url }}"/>
+		<link rel="profile" href="http://gmpg.org/xfn/11">
+		{{function('wp_head')}}
+	</head>
+
+
+	<body>
+        <header class="header">
+        	<div class="topbar">
+        		<div class="logo">
+        			<a href="index.html">
+        				<i class="fas fa-genderless"></i>
+        			</a>
+        		</div>
+        		<nav class="menu">
+        			<a href="realisations.html" class="menu-item">Réalisations</a>
+        			<a href="#about" class="menu-item">À propos</a>
+        			<a href="contact.html" class="menu-item menu-button">Me contacter</a>
+        		</nav>
+        	</div>
+        	<div class="baseline reveal">
+        		<div
+        			class="baseline-body reveal-1">
+        			<strong class="baseline-name">
+        				<span></span>Pol Carré</strong>
+        		</div>
+        		<span class="baseline-slogan reveal-2">Développeur Web PHP Backend</span>
+        	</div>
+        </header>
+		<main>
+       {% block main %}
+           
+       {% endblock %}
+			
+			<!-- Back to Top link -->
+			<div class="back-to-top-wrapper">
+				<a href="#top" class="back-to-top-link fas fa-chevron-up" aria-label="Scroll to Top"></a>
+			</div>
+		</main>
+
+        {% block footer %}
+        	<footer class="footer reveal" id="footer">
+        		<div class="container">
+        			<div class="footer-links reveal-1">
+        				<a class="social-icon" href="">
+        					<i class="fab fa-linkedin"></i>
+        				</a>
+        				<a class="social-icon" href="">
+        					<i class="fab fa-github"></i>
+        				</a>
+        			</div>
+        		</div>
+        	</footer>
+            {{ function('wp_footer') }}
+        {% endblock %}
+	</body>
+
+</html>
