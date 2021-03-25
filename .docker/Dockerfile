@@ -1,5 +1,8 @@
-ARG PHP_VERSION=""
-FROM php:${PHP_VERSION:+${PHP_VERSION}-}fpm
+FROM php:7.4-apache
+
+COPY ./ /var/www/html/
+
+COPY apache.conf /etc/apache2/sites-available/000-default.conf
 
 RUN apt-get update && apt-get install -y \ 
     build-essential libssl-dev zlib1g-dev libzip-dev libpng-dev libjpeg-dev libfreetype6-dev unzip bash msmtp msmtp-mta mailutils 

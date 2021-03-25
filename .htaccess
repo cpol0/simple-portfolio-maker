@@ -1,0 +1,20 @@
+RewriteEngine on
+RewriteBase /
+
+#for ssl forcing
+#RewriteCond %{HTTPS} off 
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+#for public
+RewriteCond %{REQUEST_URI} !^/web/
+RewriteRule ^(.*)$ web/$1 [L]
+
+
+<IfModule mod_headers.c>
+        Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains;"
+        Header always set X-FRAME-OPTIONS "SAMEORIGIN"
+        Header always set X-Content-Type-Options "nosniff"
+        Header always set Referrer-Policy "no-referrer-when-downgrade"
+        Header always set X-XSS-Protection "1; mode=block"
+        Header always set Content-Security-Policy: "default-src * data: ; script-src * 'unsafe-inline' 'unsafe-eval'  ; style-src * 'unsafe-inline' data: ; frame-ancestors 'none' ;"
+</IfModule>

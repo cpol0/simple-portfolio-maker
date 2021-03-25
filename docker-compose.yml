@@ -4,7 +4,7 @@ services:
 
     php:
         build: 
-            context: '.docker/php/'
+            context: '.php/'
             args:
                 PHP_VERSION: ${PHP_VERSION}
         networks:
@@ -14,7 +14,7 @@ services:
             - .php/php.ini:/usr/local/etc/php/php.ini
         environment:
             - ALLOW_OVERRIDE=true
-            - ENV=${PHPENV} #retirer cette ligne en production
+            - ENV=${WP_ENV}
             - XDEBUG_CONFIG="xdebug.idekey='VSCODE'"
             - MAILDEV_HOST=maildev
         depends_on:
@@ -24,7 +24,7 @@ services:
   
     apache:
         build:
-            context: '.docker/apache/'
+            context: '.apache/'
             args:
                 APACHE_VERSION: ${APACHE_VERSION}
         depends_on:
