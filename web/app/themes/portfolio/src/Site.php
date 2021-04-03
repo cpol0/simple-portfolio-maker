@@ -2,6 +2,7 @@
 
 namespace Portfolio;
 
+use Portfolio\ACFfields\Contact;
 use Portfolio\ACFfields\Home;
 use Portfolio\ACFfields\ListWork;
 use Portfolio\ACFfields\Work;
@@ -24,6 +25,7 @@ class Site extends \App\Site
         add_action('admin_init', [$this, 'customizeEditorSettings']);
         add_action('admin_init', [$this, 'buildAcfFields']);
         add_action('admin_init', [$this, 'manageWorkAdminColumns']);
+        add_filter('wpcf7_autop_or_not', '__return_false'); /* Remove extra <p> which lead to broken CSS grid */
         HighlightWork::register();
     }
 
@@ -53,6 +55,7 @@ class Site extends \App\Site
         Home::builHomePageFields();
         Work::buildWorkPageFields();
         ListWork::buildWorkListPageFields();
+        Contact::buildContactPageFields();
     }
 
     

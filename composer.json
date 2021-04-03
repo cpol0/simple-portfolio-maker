@@ -48,7 +48,9 @@
     "timber/timber": "^1.18",
     "wp-cli/wp-cli": "^2.4",
     "wpackagist-plugin/advanced-custom-fields": "^5.9",
-    "wordplate/acf": "^9.1"
+    "wordplate/acf": "^9.1",
+    "wpackagist-plugin/contact-form-7": "^5.4",
+    "wpackagist-plugin/wp-mail-smtp": "^2.7"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.5.8",

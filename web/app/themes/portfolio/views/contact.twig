@@ -1,0 +1,42 @@
+{% extends "/layouts/base.twig" %}
+
+
+{% block main %}
+
+<section class="contact reveal" id="contact">
+	<div class="container">
+		<h2 class="title reveal-1">
+            <span>{{post.get_field('subtitle')}}</span>
+                {{post.post_title}}
+        </h2>
+
+		<div class="contact-container reveal-2" id="contact-container">
+            {% filter shortcodes | raw %}
+                {# Copy paste here your contact-form 7 shortcode, then add id & class #}
+                [contact-form-7 id="118" title="Contact form 2" html_id="contact-form" html_class="contact-form"]
+            {% endfilter %}
+		</div>
+	</div>
+</section>
+
+
+
+
+{% endblock %}
+
+
+{# 
+
+Code to copy paste in contact-form7
+
+[text* your-name placeholder "Nom &amp; Prénom / Société"]
+[email* your-email placeholder "Email"]
+[textarea* your-message minlength:50 placeholder "Votre message"]
+<div>
+	<button class="btn" type="submit">
+		Envoyer le message
+	</button>
+</div>
+
+ #}
+

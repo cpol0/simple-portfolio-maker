@@ -35,7 +35,8 @@
 
 
         {% block footer %}
-			{% if (homepage is not defined) or (homepage != true) %}
+{% if (darkfooter is not defined) or (darkfooter != true) %}
+
 			{% set light = 'light' %}
 			{% endif %}
         	<footer class="footer {{light}} reveal" id="footer">

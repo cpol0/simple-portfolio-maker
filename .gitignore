@@ -10,6 +10,7 @@ web/app/themes/portfolio/acf-json/*
 # WordPress
 web/wp
 web/.htaccess
+web/app/languages/fr_FR-*.json
 
 # Logs
 *.log
