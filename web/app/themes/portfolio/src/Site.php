@@ -34,6 +34,8 @@ class Site extends \App\Site
             load_theme_textdomain('portfolio', get_template_directory() . '/languages');
         });
         add_filter('wpcf7_autop_or_not', '__return_false'); /* Remove extra <p> which lead to broken CSS grid */
+        /* add_filter('wpcf7_load_js', '__return_false'); Temporary disabled, see also contact.php
+        add_filter('wpcf7_load_css', '__return_false'); */
         HighlightCaseStudy::register();
     }
     

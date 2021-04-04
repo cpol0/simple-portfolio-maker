@@ -23,7 +23,7 @@ class Site extends TimberSite
             add_theme_support('html5');
             add_theme_support('post-thumbnails');
         });
-        add_action('init', [$this, 'disable_emojis']);
+        add_action('init', [$this, 'deregisterAssets']);
         add_filter('rest_authentication_errors', function ($result) {
             $this->disableAnonymousAccessforRESTAPI($result);
         });
@@ -42,6 +42,19 @@ class Site extends TimberSite
         wp_enqueue_script('main');
     }
 
+    public function deregisterAssets()
+    {
+        $this->disable_emojis();
+        if(!is_admin()){
+            wp_deregister_script('wp-polyfill');
+            wp_dequeue_script('wp-polyfill');
+        }
+        wp_deregister_script('wp-embed'); 
+        wp_dequeue_script('wp-embed');
+        wp_deregister_style('wp-block-library'); /* used by gutemberg, not needed in our case */
+        wp_dequeue_style('wp-block-library');
+    }
+
     /**
      * Disable the emoji's
      */
@@ -56,7 +69,7 @@ class Site extends TimberSite
         remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
 
         // Remove from TinyMCE
-        add_filter('tiny_mce_plugins', 'disable_emojis_tinymce');
+        add_filter('tiny_mce_plugins', [$this, 'disable_emojis_tinymce']);
     }
 
 
