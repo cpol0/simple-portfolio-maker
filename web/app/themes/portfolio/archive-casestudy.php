@@ -8,18 +8,10 @@ use Timber\Timber;
 
 $context = Timber::get_context();
 
-/* Get the page */
-$archivePage = get_pages(array(
-    'meta_key' => '_wp_page_template',
-    'meta_value' => 'archive-casestudy.php'
-))[0];
-
-$pageId = $archivePage->ID;
-$context['archivePage'] = $archivePage;
-$context['subtitle'] = get_post_meta( $pageId,'subtitle')[0];
+$context['archivePage'] = Timber::query_post();
 
 /* Get all cases studies */
-$context['archives'] = Timber::query_posts();
+$context['archives'] = Timber::get_posts(array('post_type' => 'casestudy'));
 
 //dd($context);
 Timber::render('list-casesstudies.twig', $context);

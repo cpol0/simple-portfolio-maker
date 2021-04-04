@@ -7,6 +7,9 @@ use Portfolio\ACFfields\Contact;
 use Portfolio\ACFfields\Home;
 use Portfolio\ACFfields\ListCasesStudies;
 use Portfolio\Metaboxes\HighlightCaseStudy;
+use Portfolio\Migrations\DefaultsMenus;
+use Portfolio\Migrations\DefaultsPage;
+use Portfolio\Migrations\DefaultsPages;
 use Timber\Timber;
 use Twig\Environment;
 use Twig\TwigFilter;
@@ -23,6 +26,8 @@ class Site extends \App\Site
     public function __construct($site_name_or_id = null)
     {
         parent::__construct($site_name_or_id);
+        add_action('setup_theme', new DefaultsPages()); /* Create default pages if needed */
+        add_action('setup_theme', new DefaultsMenus()); /* Create default menus if needed */
         add_action('init', [$this, 'registerMenus']);
         add_action('init', [$this, 'registerPostTypes']);
         add_action('init', [$this, 'registerImages']);
@@ -140,6 +145,9 @@ class Site extends \App\Site
             'hierarchical' => false,
             'exclude_from_search' => false,
             'has_archive' => true,
+            'rewrite'     => array(
+                'slug' => __('case-study', 'portfolio'),
+            ),
             'register_meta_box_cb' => HighlightCaseStudy::register(),
             'supports' => ['title', 'editor', 'excerpt', 'thumbnail']
         ]);

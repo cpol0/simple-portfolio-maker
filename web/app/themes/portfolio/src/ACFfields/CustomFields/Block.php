@@ -27,11 +27,10 @@ class Block
                     ])
                     ->defaultValue('none')
                     ->returnFormat('value') // array, label or value (default)
-                    //->required()
-                    //TODO: essayer de n'afficher le block1 que si le 0 est différent de none
+                    //TODO: it could be nice to show the blocks only if the previous is set
                     //->conditionalLogic([
-                    //    //ConditionalLogic::if('type'.$prevIndex)->notEquals('none')
-            //
+                    //    ConditionalLogic::if('type'.$prevIndex)->notEquals('none')
+                    //
                     //])
                     ,
                 Text::make(sprintf(__('Title %d', 'portfolio'), $index), 'title'.$index)

@@ -86,8 +86,12 @@ class Block
      * @param  mixed $text
      * @return void
      */
-    public static function trimExtraBR (string $text): string
+    public static function trimExtraBR (?string $text=null): ?string
     {
+        if($text==null){
+            return null;
+        }
+
         $text = preg_replace('/(\s*)(?=<ul>)/', '', $text); /* Remove \r\n before <ul> */
         $text = preg_replace('/(\s*)(?=<p)/', '', $text); /* Remove \r\n before <p */
         return preg_replace('/(?<=<ul>|<\/li>)(\s*)(?=<\/ul>|<li>)/', '', $text); /* Remove \r\n in lists */

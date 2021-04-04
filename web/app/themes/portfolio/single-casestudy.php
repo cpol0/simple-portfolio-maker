@@ -6,5 +6,5 @@ $context = Timber::get_context();
 
 $context['post'] = Timber::query_post();
 
-($context);
+//dd($context);
 Timber::render('casestudy.twig', $context);

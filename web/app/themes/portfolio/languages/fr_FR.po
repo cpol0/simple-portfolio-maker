@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: portfolio\n"
-"POT-Creation-Date: 2021-04-04 15:56+0200\n"
-"PO-Revision-Date: 2021-04-04 15:58+0200\n"
+"POT-Creation-Date: 2021-04-05 10:32+0200\n"
+"PO-Revision-Date: 2021-04-05 10:32+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -190,107 +190,115 @@ msgstr "Un mot sur vous"
 msgid "Highlight"
 msgstr "Mettre en avant"
 
-#: src/Site.php:48
+#: src/Metaboxes/HighlightCaseStudy.php:33
+msgid "Highlight this case study?"
+msgstr "Mettre en avant ce cas d'étude?"
+
+#: src/Site.php:50
 msgid "Main menu"
 msgstr "Menu principal"
 
-#: src/Site.php:49
+#: src/Site.php:51
 msgid "Logo"
 msgstr "Logo"
 
-#: src/Site.php:50
+#: src/Site.php:52
 msgid "Social Medias"
 msgstr "Réseaux sociaux"
 
-#: src/Site.php:111
+#: src/Site.php:113
 msgid "Case studies"
 msgstr "Cas d'études"
 
-#: src/Site.php:114 src/Site.php:115
+#: src/Site.php:116 src/Site.php:117
 msgid "Case study"
-msgstr "Cas d'étue"
+msgstr "Cas d'étude"
 
-#: src/Site.php:116
+#: src/Site.php:118
 msgid "Edit case study"
 msgstr "Modifier le cas d'étude"
 
-#: src/Site.php:117
+#: src/Site.php:119
 msgid "New case study"
 msgstr "Nouveau cas d'étude"
 
-#: src/Site.php:118
+#: src/Site.php:120
 msgid "View case study"
 msgstr "Voir le cas d'étude"
 
-#: src/Site.php:119
+#: src/Site.php:121
 msgid "View cases studies"
 msgstr "Voir les cas d'études"
 
-#: src/Site.php:120
+#: src/Site.php:122
 msgid "Search case studies"
 msgstr "Chercher un cas d'étude"
 
-#: src/Site.php:121
+#: src/Site.php:123
 msgid "No case studies found."
 msgstr "Aucun cas d'étude trouvé."
 
-#: src/Site.php:122
+#: src/Site.php:124
 msgid "No case studies found in Trash"
 msgstr "Aucun cas d'étude trouvé dans la corbeille"
 
-#: src/Site.php:123
+#: src/Site.php:125
 msgid "All cases studies"
 msgstr "Tous les cas d'études"
 
-#: src/Site.php:124
+#: src/Site.php:126
 msgid "Case study archive"
 msgstr "Archive de cas d'étude"
 
-#: src/Site.php:125
+#: src/Site.php:127
 msgid "Case study attributes"
 msgstr "Attributs de cas d'étude"
 
-#: src/Site.php:126
+#: src/Site.php:128
 msgid "Insert into case study"
 msgstr "AJouter dans le cas d'étude"
 
-#: src/Site.php:127
+#: src/Site.php:129
 msgid "Uploaded to this case study"
 msgstr "Téléversé dans ce cas d'étude"
 
-#: src/Site.php:128
+#: src/Site.php:130
 msgid "Filter cases studies list"
 msgstr "Filtrer la liste des cas d'études"
 
-#: src/Site.php:129
+#: src/Site.php:131
 msgid "Cases studies list navigation"
 msgstr "Naviguer dans la liste des cas d'études"
 
-#: src/Site.php:130
+#: src/Site.php:132
 msgid "Cases studies list"
 msgstr "Liste des cas d'études"
 
-#: src/Site.php:131
+#: src/Site.php:133
 msgid "Case study published."
 msgstr "Cas d'étude publié."
 
-#: src/Site.php:132
+#: src/Site.php:134
 msgid "Case study published privately."
 msgstr "Cas d'étude publié en privé."
 
-#: src/Site.php:133
+#: src/Site.php:135
 msgid "Case study reverted to draft."
 msgstr "Cas d'étude repassé en brouillon."
 
-#: src/Site.php:134
+#: src/Site.php:136
 msgid "Case study scheduled."
 msgstr "Cas d'étude programmé."
 
-#: src/Site.php:135
+#: src/Site.php:137
 msgid "Case study updated."
 msgstr "Cas d'étude mis à jour."
 
-#: src/Site.php:159
+#: src/Site.php:144
+msgid "case-study"
+msgstr "cas-d-etude"
+
+#: src/Site.php:164
 msgid "Highlighted"
 msgstr "Mis en avant"
 

@@ -29,7 +29,8 @@ class HighlightCaseStudy
 
         $context = Timber::get_context();       
         $context['META_KEY'] = self::META_KEY;
-        $context['checked'] = ($value)?'checked':''; 
+        $context['checked'] = ($value)?'checked':'';
+        $context['text'] = __('Highlight this case study?', 'portfolio'); /* DirtyFix here, https://timber.github.io/docs/guides/internationalization/#generating-localization-files doesn't work and I'm to lazy for 1 string... */
 
         Timber::render('metaboxes/highlight.twig', $context);
     }

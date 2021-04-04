@@ -1,6 +1,8 @@
 <div class="work-highlight-item">
 	<div class="work-highlight-head">
-		<img src="{{ work.thumbnail.src('large') }}" alt="Image for {{ work.title }}" class="work-highlight-img">
+        <a href="{{work.link}}">
+		    <img src="{{ work.thumbnail.src('large') }}" alt="Image for {{ work.title }}" class="work-highlight-img">
+        </a>
 	</div>
 	<div class="work-highlight-body">
 		<div class="work-highlight-tag">

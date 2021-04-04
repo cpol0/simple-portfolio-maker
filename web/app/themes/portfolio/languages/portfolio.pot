@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: portfolio\n"
-"POT-Creation-Date: 2021-04-04 15:56+0200\n"
+"POT-Creation-Date: 2021-04-05 10:31+0200\n"
 "PO-Revision-Date: 2021-04-04 14:51+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -188,106 +188,114 @@ msgstr ""
 msgid "Highlight"
 msgstr ""
 
-#: src/Site.php:48
-msgid "Main menu"
-msgstr ""
-
-#: src/Site.php:49
-msgid "Logo"
+#: src/Metaboxes/HighlightCaseStudy.php:33
+msgid "Highlight this case study?"
 msgstr ""
 
 #: src/Site.php:50
+msgid "Main menu"
+msgstr ""
+
+#: src/Site.php:51
+msgid "Logo"
+msgstr ""
+
+#: src/Site.php:52
 msgid "Social Medias"
 msgstr ""
 
-#: src/Site.php:111
+#: src/Site.php:113
 msgid "Case studies"
 msgstr ""
 
-#: src/Site.php:114 src/Site.php:115
+#: src/Site.php:116 src/Site.php:117
 msgid "Case study"
 msgstr ""
 
-#: src/Site.php:116
+#: src/Site.php:118
 msgid "Edit case study"
 msgstr ""
 
-#: src/Site.php:117
+#: src/Site.php:119
 msgid "New case study"
 msgstr ""
 
-#: src/Site.php:118
+#: src/Site.php:120
 msgid "View case study"
 msgstr ""
 
-#: src/Site.php:119
+#: src/Site.php:121
 msgid "View cases studies"
 msgstr ""
 
-#: src/Site.php:120
+#: src/Site.php:122
 msgid "Search case studies"
 msgstr ""
 
-#: src/Site.php:121
+#: src/Site.php:123
 msgid "No case studies found."
 msgstr ""
 
-#: src/Site.php:122
+#: src/Site.php:124
 msgid "No case studies found in Trash"
 msgstr ""
 
-#: src/Site.php:123
+#: src/Site.php:125
 msgid "All cases studies"
 msgstr ""
 
-#: src/Site.php:124
+#: src/Site.php:126
 msgid "Case study archive"
 msgstr ""
 
-#: src/Site.php:125
+#: src/Site.php:127
 msgid "Case study attributes"
 msgstr ""
 
-#: src/Site.php:126
+#: src/Site.php:128
 msgid "Insert into case study"
 msgstr ""
 
-#: src/Site.php:127
+#: src/Site.php:129
 msgid "Uploaded to this case study"
 msgstr ""
 
-#: src/Site.php:128
+#: src/Site.php:130
 msgid "Filter cases studies list"
 msgstr ""
 
-#: src/Site.php:129
+#: src/Site.php:131
 msgid "Cases studies list navigation"
 msgstr ""
 
-#: src/Site.php:130
+#: src/Site.php:132
 msgid "Cases studies list"
 msgstr ""
 
-#: src/Site.php:131
+#: src/Site.php:133
 msgid "Case study published."
 msgstr ""
 
-#: src/Site.php:132
+#: src/Site.php:134
 msgid "Case study published privately."
 msgstr ""
 
-#: src/Site.php:133
+#: src/Site.php:135
 msgid "Case study reverted to draft."
 msgstr ""
 
-#: src/Site.php:134
+#: src/Site.php:136
 msgid "Case study scheduled."
 msgstr ""
 
-#: src/Site.php:135
+#: src/Site.php:137
 msgid "Case study updated."
 msgstr ""
 
-#: src/Site.php:159
+#: src/Site.php:144
+msgid "case-study"
+msgstr ""
+
+#: src/Site.php:164
 msgid "Highlighted"
 msgstr ""
