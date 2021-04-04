@@ -1,0 +1,293 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: portfolio\n"
+"POT-Creation-Date: 2021-04-04 15:56+0200\n"
+"PO-Revision-Date: 2021-04-04 14:51+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_n;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: src/ACFfields/CaseStudy.php:22 src/ACFfields/Contact.php:18
+#: src/ACFfields/ListCasesStudies.php:19
+msgid "Subtitle"
+msgstr ""
+
+#: src/ACFfields/CaseStudy.php:23
+msgid "Add the subtitle."
+msgstr ""
+
+#: src/ACFfields/CaseStudy.php:29
+msgid "Tags title"
+msgstr ""
+
+#: src/ACFfields/CaseStudy.php:30
+msgid "Add the title."
+msgstr ""
+
+#: src/ACFfields/CaseStudy.php:33
+msgid "Tags"
+msgstr ""
+
+#: src/ACFfields/CaseStudy.php:34
+msgid "Add the tags with a list of links"
+msgstr ""
+
+#: src/ACFfields/CaseStudy.php:42
+msgid "Main technology"
+msgstr ""
+
+#: src/ACFfields/CaseStudy.php:43
+msgid "Add the main techno used."
+msgstr ""
+
+#: src/ACFfields/CaseStudy.php:49
+msgid "Cases studies index page"
+msgstr ""
+
+#: src/ACFfields/CaseStudy.php:50
+msgid "Please select work index page"
+msgstr ""
+
+#: src/ACFfields/CustomFields/Block.php:17
+msgid ""
+"All texts must be between \"p\" markers. Don't forget to justify them (alt"
+"+ctrl+j). For blocks with image, simply add the picture after the text"
+msgstr ""
+
+#: src/ACFfields/CustomFields/Block.php:19
+#, php-format
+msgid "Block %d type"
+msgstr ""
+
+#: src/ACFfields/CustomFields/Block.php:20
+msgid "Select the block type you want"
+msgstr ""
+
+#: src/ACFfields/CustomFields/Block.php:22
+msgid "None"
+msgstr ""
+
+#: src/ACFfields/CustomFields/Block.php:23
+msgid "Full text"
+msgstr ""
+
+#: src/ACFfields/CustomFields/Block.php:24
+msgid "2 text columns"
+msgstr ""
+
+#: src/ACFfields/CustomFields/Block.php:25
+msgid "Block text right"
+msgstr ""
+
+#: src/ACFfields/CustomFields/Block.php:26
+msgid "Block text left"
+msgstr ""
+
+#: src/ACFfields/CustomFields/Block.php:37
+#, php-format
+msgid "Title %d"
+msgstr ""
+
+#: src/ACFfields/CustomFields/Block.php:38
+msgid "Add the block title."
+msgstr ""
+
+#: src/ACFfields/CustomFields/Block.php:44
+#, php-format
+msgid "Block %d body"
+msgstr ""
+
+#: src/ACFfields/CustomFields/Block.php:52
+#, php-format
+msgid "Block %d - 2nd column body"
+msgstr ""
+
+#: src/ACFfields/CustomFields/Mosaic.php:13
+msgid "Large mosaic image"
+msgstr ""
+
+#: src/ACFfields/CustomFields/Mosaic.php:14
+msgid "Add an image in at least 500x600px and only in the formats"
+msgstr ""
+
+#: src/ACFfields/CustomFields/Mosaic.php:19
+msgid "Small mosaic image 1"
+msgstr ""
+
+#: src/ACFfields/CustomFields/Mosaic.php:20
+#: src/ACFfields/CustomFields/Mosaic.php:26
+msgid "Add an image in at least 500x288px and only in the formats"
+msgstr ""
+
+#: src/ACFfields/CustomFields/Mosaic.php:25
+msgid "Small mosaic image 2"
+msgstr ""
+
+#: src/ACFfields/Home.php:19
+msgid "Welcome section title"
+msgstr ""
+
+#: src/ACFfields/Home.php:20
+msgid "Add your name"
+msgstr ""
+
+#: src/ACFfields/Home.php:22
+msgid "Welcome section subtitle"
+msgstr ""
+
+#: src/ACFfields/Home.php:23
+msgid "Add your job"
+msgstr ""
+
+#: src/ACFfields/Home.php:28
+msgid "Skills section title"
+msgstr ""
+
+#: src/ACFfields/Home.php:30
+msgid "Skills section subtitle"
+msgstr ""
+
+#: src/ACFfields/Home.php:32
+msgid "Skills description"
+msgstr ""
+
+#: src/ACFfields/Home.php:40
+msgid "Cases studies section title"
+msgstr ""
+
+#: src/ACFfields/Home.php:42
+msgid "Cases studies section subtitle"
+msgstr ""
+
+#: src/ACFfields/Home.php:47
+msgid "About section title"
+msgstr ""
+
+#: src/ACFfields/Home.php:49
+msgid "About section subtitle"
+msgstr ""
+
+#: src/ACFfields/Home.php:51
+msgid "About section body"
+msgstr ""
+
+#: src/ACFfields/Home.php:52
+msgid "Describe yourself"
+msgstr ""
+
+#: src/Metaboxes/HighlightCaseStudy.php:21
+msgid "Highlight"
+msgstr ""
+
+#: src/Site.php:48
+msgid "Main menu"
+msgstr ""
+
+#: src/Site.php:49
+msgid "Logo"
+msgstr ""
+
+#: src/Site.php:50
+msgid "Social Medias"
+msgstr ""
+
+#: src/Site.php:111
+msgid "Case studies"
+msgstr ""
+
+#: src/Site.php:114 src/Site.php:115
+msgid "Case study"
+msgstr ""
+
+#: src/Site.php:116
+msgid "Edit case study"
+msgstr ""
+
+#: src/Site.php:117
+msgid "New case study"
+msgstr ""
+
+#: src/Site.php:118
+msgid "View case study"
+msgstr ""
+
+#: src/Site.php:119
+msgid "View cases studies"
+msgstr ""
+
+#: src/Site.php:120
+msgid "Search case studies"
+msgstr ""
+
+#: src/Site.php:121
+msgid "No case studies found."
+msgstr ""
+
+#: src/Site.php:122
+msgid "No case studies found in Trash"
+msgstr ""
+
+#: src/Site.php:123
+msgid "All cases studies"
+msgstr ""
+
+#: src/Site.php:124
+msgid "Case study archive"
+msgstr ""
+
+#: src/Site.php:125
+msgid "Case study attributes"
+msgstr ""
+
+#: src/Site.php:126
+msgid "Insert into case study"
+msgstr ""
+
+#: src/Site.php:127
+msgid "Uploaded to this case study"
+msgstr ""
+
+#: src/Site.php:128
+msgid "Filter cases studies list"
+msgstr ""
+
+#: src/Site.php:129
+msgid "Cases studies list navigation"
+msgstr ""
+
+#: src/Site.php:130
+msgid "Cases studies list"
+msgstr ""
+
+#: src/Site.php:131
+msgid "Case study published."
+msgstr ""
+
+#: src/Site.php:132
+msgid "Case study published privately."
+msgstr ""
+
+#: src/Site.php:133
+msgid "Case study reverted to draft."
+msgstr ""
+
+#: src/Site.php:134
+msgid "Case study scheduled."
+msgstr ""
+
+#: src/Site.php:135
+msgid "Case study updated."
+msgstr ""
+
+#: src/Site.php:159
+msgid "Highlighted"
+msgstr ""

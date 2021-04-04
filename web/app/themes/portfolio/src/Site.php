@@ -2,19 +2,24 @@
 
 namespace Portfolio;
 
+use Portfolio\ACFfields\CaseStudy;
 use Portfolio\ACFfields\Contact;
 use Portfolio\ACFfields\Home;
-use Portfolio\ACFfields\ListWork;
-use Portfolio\ACFfields\Work;
-use Portfolio\Metaboxes\HighlightWork;
-use Portfolio\Twig\Filters;
+use Portfolio\ACFfields\ListCasesStudies;
+use Portfolio\Metaboxes\HighlightCaseStudy;
 use Timber\Timber;
 use Twig\Environment;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
 
 class Site extends \App\Site
-{
+{    
+    /**
+     * __construct
+     *
+     * @param  mixed $site_name_or_id
+     * @return void
+     */
     public function __construct($site_name_or_id = null)
     {
         parent::__construct($site_name_or_id);
@@ -24,42 +29,69 @@ class Site extends \App\Site
         add_filter('timber/twig', [$this, 'extendTwig']);
         add_action('admin_init', [$this, 'customizeEditorSettings']);
         add_action('admin_init', [$this, 'buildAcfFields']);
-        add_action('admin_init', [$this, 'manageWorkAdminColumns']);
+        add_action('admin_init', [$this, 'manageCasesStudiesAdminColumns']);
+        add_action('after_setup_theme', function () {
+            load_theme_textdomain('portfolio', get_template_directory() . '/languages');
+        });
         add_filter('wpcf7_autop_or_not', '__return_false'); /* Remove extra <p> which lead to broken CSS grid */
-        HighlightWork::register();
+        HighlightCaseStudy::register();
     }
-
+    
+    /**
+     * registerMenus
+     *
+     * @return void
+     */
     public function registerMenus(): void
     {
         register_nav_menus([
-            'header' => 'Menu principal',
-            'logo' => 'logo',
-            'footer' => 'Réseaux Sociaux'
+            'header' =>  __('Main menu', 'portfolio'), 
+            'logo' => __('Logo', 'portfolio'),
+            'footer' =>  __('Social Medias', 'portfolio')
         ]);
     }
-
+    
+    /**
+     * customizeEditorSettings
+     *
+     * @return void
+     */
     public function customizeEditorSettings(): void{
         add_filter('use_block_editor_for_post', '__return_false', 10); /* Disable gutemberg */
-        remove_post_type_support('page', 'editor'); /* Disable glofab editor field for pages */
-        remove_post_type_support('work', 'editor'); /* Disable glofab editor field for custom type 'work' */
+        /* Disable global editor field for custom type 'casestudy' */
+        remove_post_type_support('casestudy', 'editor'); 
+        /* Disable global editor field for some templates */
+        $this->disableContentEditorForTemplates(['home.php', 'contact.php', 'archive-casestudy.php']);
+        
     }
-
-    //TODO: bouger ça dans un doccier fields, puis faire un home.php, work.php, etc....
+    
+    /**
+     * buildAcfFields
+     * Build ACF fields through wordplate/extendedACF lib
+     *
+     * @return void
+     */
     public function buildAcfFields(): void
     {
-        
+        /* Is ACF installed? */
         if (!function_exists('register_extended_field_group')) {
             return;
         }
 
-        Home::builHomePageFields();
-        Work::buildWorkPageFields();
-        ListWork::buildWorkListPageFields();
-        Contact::buildContactPageFields();
+        /* Build custom fields for all these pages */
+        Home::builPageFields();
+        CaseStudy::buildPageFields();
+        ListCasesStudies::buildPageFields();
+        Contact::buildPageFields();
     }
 
     
-
+    /**
+     * registerImages
+     * Register custom image sizes
+     *
+     * @return void
+     */
     public function registerImages(): void
     {
         add_image_size('block', 550, 400, true);
@@ -67,63 +99,74 @@ class Site extends \App\Site
         add_image_size('mosaic-small', 500, 288, true);
     }
     
-
+    /**
+     * registerPostTypes
+     * Register a case study type
+     *
+     * @return void
+     */
     public function registerPostTypes(): void
     {
-        register_post_type('work', [
-            'label' => __('Work', 'portfolio'),
+        register_post_type('casestudy', [
+            'label' => __('Case studies', 'portfolio'),
             'menu_icon' => 'dashicons-hammer',
             'labels' => [
-                'name'                     => __('Work', 'portfolio'),
-                'singular_name'            => __('Work', 'portfolio'),
-                'edit_item'                => __('Edit work', 'portfolio'),
-                'new_item'                 => __('New work', 'portfolio'),
-                'view_item'                => __('View work', 'portfolio'),
-                'view_items'               => __('View works', 'portfolio'),
-                'search_items'             => __('Search works', 'portfolio'),
-                'not_found'                => __('No works found.', 'portfolio'),
-                'not_found_in_trash'       => __('No works found in Trash', 'portfolio'),
-                'all_items'                => __('All works', 'portfolio'),
-                'archives'                 => __('Work archive', 'portfolio'),
-                'attributes'               => __('Work attributes', 'portfolio'),
-                'insert_into_item'         => __('Insert into work', 'portfolio'),
-                'uploaded_to_this_item'    => __('Uploaded to this work', 'portfolio'),
-                'filter_items_list'        => __('Filter works list', 'portfolio'),
-                'items_list_navigation'    => __('Works list navigation', 'portfolio'),
-                'items_list'               => __('Works list', 'portfolio'),
-                'item_published'           => __('Work published.', 'portfolio'),
-                'item_published_privately' => __('Work published privately.', 'portfolio'),
-                'item_reverted_to_draft'   => __('Work reverted to draft.', 'portfolio'),
-                'item_scheduled'           => __('Work scheduled.', 'portfolio'),
-                'item_updated'             => __('Work updated.', 'portfolio'),
+                'name'                     => __('Case study', 'portfolio'),
+                'singular_name'            => __('Case study', 'portfolio'),
+                'edit_item'                => __('Edit case study', 'portfolio'),
+                'new_item'                 => __('New case study', 'portfolio'),
+                'view_item'                => __('View case study', 'portfolio'),
+                'view_items'               => __('View cases studies', 'portfolio'),
+                'search_items'             => __('Search case studies', 'portfolio'),
+                'not_found'                => __('No case studies found.', 'portfolio'),
+                'not_found_in_trash'       => __('No case studies found in Trash', 'portfolio'),
+                'all_items'                => __('All cases studies', 'portfolio'),
+                'archives'                 => __('Case study archive', 'portfolio'),
+                'attributes'               => __('Case study attributes', 'portfolio'),
+                'insert_into_item'         => __('Insert into case study', 'portfolio'),
+                'uploaded_to_this_item'    => __('Uploaded to this case study', 'portfolio'),
+                'filter_items_list'        => __('Filter cases studies list', 'portfolio'),
+                'items_list_navigation'    => __('Cases studies list navigation', 'portfolio'),
+                'items_list'               => __('Cases studies list', 'portfolio'),
+                'item_published'           => __('Case study published.', 'portfolio'),
+                'item_published_privately' => __('Case study published privately.', 'portfolio'),
+                'item_reverted_to_draft'   => __('Case study reverted to draft.', 'portfolio'),
+                'item_scheduled'           => __('Case study scheduled.', 'portfolio'),
+                'item_updated'             => __('Case study updated.', 'portfolio'),
             ],
             'public' => true,
             'hierarchical' => false,
             'exclude_from_search' => false,
-            'has_archive' => 'realisations',
-            'register_meta_box_cb' => HighlightWork::register(),
+            'has_archive' => true,
+            'register_meta_box_cb' => HighlightCaseStudy::register(),
             'supports' => ['title', 'editor', 'excerpt', 'thumbnail']
         ]);
 
     }
-
-    public function manageWorkAdminColumns()
+    
+    /**
+     * manageCasesStudiesAdminColumns
+     * add a column for highlighted case studies in the admin section
+     *
+     * @return void
+     */
+    public function manageCasesStudiesAdminColumns()
     {
-        add_filter('manage_work_posts_columns', function ($columns) {
+        add_filter('manage_casestudy_posts_columns', function ($columns) {
             $newColumns = [];
             foreach ($columns as $k => $v) {
                 if ($k === 'date') {
-                    $newColumns['highlight-work'] = __('Highlight', 'portfolio');
+                    $newColumns['highlight-work'] = __('Highlighted', 'portfolio');
                 }
                 $newColumns[$k] = $v;
             }
             return $newColumns;
         });
 
-        add_filter('manage_work_posts_custom_column', function ($column, $postId) {
+        add_filter('manage_casestudy_posts_custom_column', function ($column, $postId) {
             if ($column === 'highlight-work') {
                 $context = Timber::get_context();
-                $context['isHighlighted'] = get_post_meta($postId, HighlightWork::META_KEY, true);
+                $context['isHighlighted'] = get_post_meta($postId, HighlightCaseStudy::META_KEY, true);
             
                 Timber::render('metaboxes/highlight-admin-column.twig', $context);
             }
@@ -131,7 +174,13 @@ class Site extends \App\Site
         }, 10, 2);
     }
 
-     public function extendTwig($twig): Environment
+    /**
+     * extendTwig
+     *
+     * @param  mixed $twig
+     * @return Environment
+     */
+    public function extendTwig($twig): Environment
     {
         $twig->addFilter(new TwigFilter('col', ['Portfolio\Twig\Block', 'colClass']));
         $twig->addFilter(new TwigFilter('reveal', ['Portfolio\Twig\Block', 'revealClass']));
@@ -139,15 +188,30 @@ class Site extends \App\Site
         $twig->addFilter(new TwigFilter('trimextrabr', ['Portfolio\Twig\Block', 'trimExtraBR']));
         $twig->addFilter(new TwigFilter('technotags', ['Portfolio\Twig\Block', 'technoTags']));
         $twig->addFunction(new TwigFunction('cutOffBody', ['Portfolio\Twig\Block', 'cutOffBody']));
-        $twig->addFunction(new TwigFunction('writeBlock', ['Portfolio\Twig\Block', 'writeBlock']));
         return $twig;
-        
     }
 
-    /* public function registerTaxonomies(): void
+    /**
+     * disableContentEditorForTemplates
+     * Disable content editor for page template
+     *
+     * @param  mixed $templates
+     * @return void
+     */
+    private function disableContentEditorForTemplates(array $templates): void
     {
-         voir 44:15 part2
-    } */
 
-    //2:22:28 part2
+        if (isset($_GET['post'])) {
+            $post_id = $_GET['post'];
+        }
+
+        if (!isset($post_id)) return;
+
+        $template_file = get_post_meta($post_id, '_wp_page_template', true);
+
+        if (in_array($template_file, $templates)) {
+            remove_post_type_support('page', 'editor');
+        }
+    }
+    
 }

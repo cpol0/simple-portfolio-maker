@@ -14,18 +14,18 @@ class Block
         $prevIndex = $index-1;
         $prevIndex = ($prevIndex < 0)? '' : $prevIndex;
 
-        $blockInstructions="All texts must be between \"p\" markers. Don't forget to justify them (alt+ctrl+j). For blocks with image, simply add the picture after the text";
+        $blockInstructions=__("All texts must be between \"p\" markers. Don't forget to justify them (alt+ctrl+j). For blocks with image, simply add the picture after the text", 'portfolio');
 
-        return [ButtonGroup::make('Type'.$index)
-                    ->instructions('Select the block type you want')
+        return [ButtonGroup::make(sprintf(__('Block %d type', 'portfolio'), $index), 'type'.$index)
+                    ->instructions(__('Select the block type you want', 'portfolio'))
                     ->choices([
-                        'none' => 'None',
-                        'fulltext' => 'Full text',
-                        '2textcolumns' => '2 text columns',
-                        'blocktextright' => 'Block text right',
-                        'blocktextleft' => 'Block text left',
+                        'none' => __('None', 'portfolio'),
+                        'fulltext' => __('Full text', 'portfolio'),
+                        '2textcolumns' => __('2 text columns', 'portfolio'),
+                        'blocktextright' => __('Block text right', 'portfolio'),
+                        'blocktextleft' => __('Block text left', 'portfolio'),
                     ])
-                    ->defaultValue('short')
+                    ->defaultValue('none')
                     ->returnFormat('value') // array, label or value (default)
                     //->required()
                     //TODO: essayer de n'afficher le block1 que si le 0 est différent de none
@@ -34,25 +34,23 @@ class Block
             //
                     //])
                     ,
-                Text::make('Title'.$index)
-                    ->instructions('Add the title.')
+                Text::make(sprintf(__('Title %d', 'portfolio'), $index), 'title'.$index)
+                    ->instructions(__('Add the block title.', 'portfolio'))
                     ->characterLimit(100)
                     ->conditionalLogic([
                             ConditionalLogic::if('type' . $index)->notEquals('none')
                         ])
                         ,
-                Wysiwyg::make('Block'.$index)
+                Wysiwyg::make(sprintf(__('Block %d body', 'portfolio'), $index), 'block'.$index)
                     ->instructions($blockInstructions) 
-                    //->mediaUpload(false)
                     ->tabs('visual')
                     ->toolbar('simple')
                     ->required()
                     ->conditionalLogic([
                         ConditionalLogic::if('type'.$index)->notEquals('none')
                     ]),
-                Wysiwyg::make('Block' . $index.'-secondTextColumn')
+                Wysiwyg::make(sprintf(__('Block %d - 2nd column body', 'portfolio'), $index), 'block' . $index.'-secondtextcolumn')
                     ->instructions($blockInstructions)
-                    //->mediaUpload(false)
                     ->tabs('visual')
                     ->toolbar('simple')
                     ->required()

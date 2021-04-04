@@ -11,23 +11,27 @@ use WordPlate\Acf\Fields\Text;
 use WordPlate\Acf\Fields\Wysiwyg;
 use WordPlate\Acf\Location;
 
-class Work
+class CaseStudy
 {
     CONST MAX_BLOCK_ALLOWED = 5;
 
-    public static function buildWorkPageFields(): void
+    public static function buildPageFields(): void
     {
 
         $titles = [
-            Text::make('Subtitle')
-            ->instructions('Add the subtitle.')
+            Text::make(__('Subtitle', 'portfolio'), 'subtitle')
+            ->instructions(__('Add the subtitle.', 'portfolio'))
             ->characterLimit(100)
             ->required(),
         ];
 
         $tags = [
-            Wysiwyg::make('tags')
-            ->instructions('Add the tags with a list of links')
+            Text::make(__('Tags title', 'portfolio'), 'tags-title')
+            ->instructions(__('Add the title.', 'portfolio'))
+            ->characterLimit(100)
+            ->required(),
+            Wysiwyg::make(__('Tags', 'portfolio'), 'tags')
+            ->instructions(__('Add the tags with a list of links', 'portfolio'))
             ->mediaUpload(false)
             ->tabs('visual')
             ->toolbar('simple')
@@ -35,15 +39,15 @@ class Work
         ];
 
         $mainTechno = [
-            Text::make('Techno')
-            ->instructions('Add the main techno used. ex: <i class="fab fa-symfony"></i>Symfony')
+            Text::make(__('Main technology', 'portfolio'), 'techno')
+            ->instructions(__('Add the main techno used.', 'portfolio') . ' ex: <i class="fab fa-symfony"></i>Symfony')
             ->characterLimit(100)
             ->required(),
         ];
 
         $back = [
-            Link::make('Work-index')
-            ->instructions('Please select work index page')
+            Link::make(__('Cases studies index page', 'portfolio'), 'work-index')
+            ->instructions(__('Please select work index page', 'portfolio'))
             ->required(),
         ];
 
@@ -56,7 +60,7 @@ class Work
                 $mainTechno,
                 $back),
             'location' => [
-                Location::if('post_type', "work"),
+                Location::if('post_type', "casestudy"),
             ],
         ]);
 

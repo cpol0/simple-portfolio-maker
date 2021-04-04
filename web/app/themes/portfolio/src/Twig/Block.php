@@ -3,10 +3,20 @@
 
 namespace Portfolio\Twig;
 
-use Twig\TwigFilter;
-
+/**
+ * Block
+ * Twig filters & functions to easily deal with blocks
+ */
 class Block 
-{
+{    
+    /**
+     * colClass
+     * Add a 'col' class
+     *
+     * @param  mixed $string
+     * @param  mixed $type
+     * @return string
+     */
     public static function colClass($string, $type): string
     {
         if(($type === 'none') || ($type === 'fulltext')){
@@ -15,7 +25,15 @@ class Block
             return $string.' col';
         }
     }
-
+    
+    /**
+     * revealClass
+     * Add 'reveal' class
+     *
+     * @param  mixed $string
+     * @param  mixed $i
+     * @return string
+     */
     public static function revealClass($string, $i): string
     {
         $time = $i+2;/* reveal-1 is alreay used for the title */
@@ -24,7 +42,14 @@ class Block
 
         return $string .' '.$class;
     }
-
+    
+    /**
+     * ish2
+     * Insert <h2></h2> only if title is set
+     *
+     * @param  mixed $title
+     * @return string
+     */
     public static function ish2($title): ?string
     {
         if(!empty($title)){
@@ -32,57 +57,53 @@ class Block
         }
         return null;
     }
-
-    public static function cutOffBody(string $blockTxtImg)//: array
+    
+    /**
+     * cutOffBody
+     * Split a block in 2 parts: return the url of the image and the text of the block
+     *
+     * @param  mixed $blockTxtImg
+     * @return array
+     */
+    public static function cutOffBody(string $blockTxtImg): array
     {
-        //preg_split ("/<img (.*?)>/" , $blockTxtImg, -1, PREG_SPLIT_DELIM_CAPTURE);
-        //$text = preg_split("/<img (.*?)>/", $blockTxtImg);
         $imageFound = preg_match('/<img.*src="(.*?)".*>/', $blockTxtImg, $results);
         if($imageFound){
             $src = $results[1];
+            $text = str_replace($results[0], '', $blockTxtImg);
+        } else {
+            $text = $blockTxtImg;
+            $src = '';
         }
-        $text = str_replace($results[0], '', $blockTxtImg);
 
         return ['text' => $text, 'img' => $src];
     }
-
-    public static function trimExtraBR (string $text)
+    
+    /**
+     * trimExtraBR
+     * Wordpress wysiwyg add unwanted \r\n, which leads to extra <br> when nl2br filter is called. 
+     *
+     * @param  mixed $text
+     * @return void
+     */
+    public static function trimExtraBR (string $text): string
     {
         $text = preg_replace('/(\s*)(?=<ul>)/', '', $text); /* Remove \r\n before <ul> */
         $text = preg_replace('/(\s*)(?=<p)/', '', $text); /* Remove \r\n before <p */
         return preg_replace('/(?<=<ul>|<\/li>)(\s*)(?=<\/ul>|<li>)/', '', $text); /* Remove \r\n in lists */
           
     }
-
+    
+    /**
+     * technoTags
+     * Add classes to fit the CSS
+     *
+     * @param  mixed $list
+     * @return void
+     */
     public static function technoTags(string $list)
     {
         $list = str_replace('<ul>', '<ul class="tags">', $list);
         return str_replace('<a', '<a class="tag"', $list);
     }
-
-    public static function writeBlock(string $blockType, $title, $body): ?string
-    {
-        $str = null;
-
-        switch($blockType){
-            case 'fulltext':
-                if(empty($title)){
-                    $str = <<<EOT
-<p>$body</p>
-EOT;
-                } else {
-                    $str = <<<EOT
-<h2>$title</h2>
-<p>$body</p>
-EOT;
-                }
-                break;
-                case 'blocktextright':
-                    default:
-                    break;
-        }
-       
-        return $str;
-    }
-
 }

@@ -4,7 +4,7 @@ namespace Portfolio\Metaboxes;
 
 use Timber\Timber;
 
-class HighlightWork
+class HighlightCaseStudy
 {
     const META_KEY = 'portfolio_highlight';
     const NONCE = '_portfolio_highlight_nonce';
@@ -17,8 +17,8 @@ class HighlightWork
 
     public static function add($postType, $post)
     {
-        if ($postType === 'work' && current_user_can('publish_posts', $post)) {
-            add_meta_box(self::META_KEY, 'Highlighted', [self::class, 'render'], 'work', 'side');
+        if ($postType === 'casestudy' && current_user_can('publish_posts', $post)) {
+            add_meta_box(self::META_KEY, __('Highlight', 'portfolio'), [self::class, 'render'], 'casestudy', 'side');
         }
     }
 

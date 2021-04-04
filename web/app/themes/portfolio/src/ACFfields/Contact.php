@@ -7,7 +7,7 @@ use WordPlate\Acf\Location;
 
 class Contact
 {
-    public static function buildContactPageFields(): void
+    public static function buildPageFields(): void
     {
         $pageId = get_pages(array(
             'meta_key' => '_wp_page_template',
@@ -15,7 +15,7 @@ class Contact
         ))[0]->ID;
         
         $fields = [
-            Text::make('Subtitle')
+            Text::make(__('Subtitle', 'portfolio'), 'subtitle')
             ->required(),
         ];
 

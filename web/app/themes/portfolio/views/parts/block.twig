@@ -38,7 +38,7 @@
         <div>{{body | trimextrabr | raw  | nl2br}}</div>
     </div>
     <div>
-        {% set bodyRightColumn = post.custom["block#{i}-secondtextcolumn"] %}
+        {% set bodyRightColumn = post.get_field("block#{i}-secondtextcolumn") %}
         <div>{{bodyRightColumn  | trimextrabr | raw  | nl2br}}</div>
     </div>
 

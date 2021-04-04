@@ -8,7 +8,7 @@ use WordPlate\Acf\Location;
 
 class Home
 {
-    public static function builHomePageFields(): void
+    public static function builPageFields(): void
     {
         $homePageId = get_pages(array(
             'meta_key' => '_wp_page_template',
@@ -16,44 +16,44 @@ class Home
         ))[0]->ID;
         
         $welcomeFields = [
-            Text::make('Welcome Title')
-            ->instructions('Add your name')
+            Text::make(__('Welcome section title', 'portfolio'), 'welcome-title')
+            ->instructions(__('Add your name', 'portfolio'))
             ->required(),
-            Text::make('Welcome Subtitle')
-            ->instructions('Add your job')
+            Text::make(__('Welcome section subtitle', 'portfolio'), 'welcome-subtitle')
+            ->instructions(__( 'Add your job', 'portfolio'))
             ->required(),
         ];
 
         $skillsFields = [
-            Text::make('Skills Title')
+            Text::make(__('Skills section title', 'portfolio'), 'skills-title')
             ->required(),
-            Text::make('Skills Subtitle')
+            Text::make(__('Skills section subtitle', 'portfolio'), 'skills-subtitle')
             ->required(),
-            Wysiwyg::make('Skills Text')
+            Wysiwyg::make(__('Skills description', 'portfolio'), 'skills-text')
             ->instructions('Describe your skills')
             ->mediaUpload(false)
-                ->tabs('visual')
-                ->toolbar('simple')
-                ->required(),
+            ->tabs('visual')
+            ->toolbar('simple')
+            ->required(),
         ];
         $works = [
-            Text::make('Works Title')
+            Text::make(__('Cases studies section title', 'portfolio'), 'works-title')
             ->required(),
-            Text::make('Works Subtitle')
+            Text::make(__('Cases studies section subtitle', 'portfolio'), 'works-subtitle')
             ->required(),
         ];
 
         $about = [
-            Text::make('About Title')
+            Text::make(__('About section title', 'portfolio'), 'about-title')
             ->required(),
-            Text::make('About Subtitle')
+            Text::make(__('About section subtitle', 'portfolio'), 'about-subtitle')
             ->required(),
-            Wysiwyg::make('About Text')
-            ->instructions('Describe yourself')
+            Wysiwyg::make(__('About section body', 'portfolio'), 'about-text')
+            ->instructions(__('Describe yourself', 'portfolio'))
             ->mediaUpload(false)
-                ->tabs('visual')
-                ->toolbar('simple')
-                ->required(),
+            ->tabs('visual')
+            ->toolbar('simple')
+            ->required(),
         ];
 
         register_extended_field_group([

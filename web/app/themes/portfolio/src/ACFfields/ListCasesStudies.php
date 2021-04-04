@@ -6,17 +6,17 @@ use WordPlate\Acf\Fields\Text;
 use WordPlate\Acf\Fields\Wysiwyg;
 use WordPlate\Acf\Location;
 
-class ListWork
+class ListCasesStudies
 {
-    public static function buildWorkListPageFields(): void
+    public static function buildPageFields(): void
     {
         $pageId = get_pages(array(
             'meta_key' => '_wp_page_template',
-            'meta_value' => 'archive-work.php'
+            'meta_value' => 'archive-casestudy.php'
         ))[0]->ID;
         
         $fields = [
-            Text::make('Subtitle')
+            Text::make(__('Subtitle', 'portfolio'), 'subtitle')
             ->required(),
         ];
 

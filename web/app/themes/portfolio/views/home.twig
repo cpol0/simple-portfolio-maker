@@ -5,9 +5,9 @@
 	<div class="baseline-body reveal-1">
 		<strong class="baseline-name">
 			<span></span>
-			{{post.custom['welcome-title']}}</strong>
+			{{post.get_field('welcome-title')}}</strong>
 	</div>
-	<span class="baseline-slogan reveal-2">{{post.custom['welcome-subtitle']}}</span>
+	<span class="baseline-slogan reveal-2">{{post.get_field('welcome-subtitle')}}</span>
 </div>
 
 {% endblock %}
@@ -20,11 +20,11 @@
 		<div class="block">
 			<div class="block-body reveal">
 				<h2 class="title reveal-3">
-                    <span>{{post.custom['skills-title']}}</span>
-                    {{post.custom['skills-subtitle']}}
+                    <span>{{post.get_field('skills-title')}}</span>
+                    {{post.get_field('skills-subtitle')}}
                 </h2>
 				<p class="reveal-4">
-                    {{post.custom['skills-text'] | raw}}
+                    {{post.get_field('skills-text') | raw}}
 				</p>
 			</div>
 		</div>
@@ -34,8 +34,8 @@
 <section class="work reveal" id="work">
 	<div class="container">
 		<h2 class="title reveal-1">
-			<span>{{post.custom['works-title']}}</span>
-			{{post.custom['works-subtitle']}}
+			<span>{{post.get_field('works-title')}}</span>
+			{{post.get_field('works-subtitle')}}
 		</h2>
 
 		<div class="work-highlight reveal-2" id="work-highlight">
@@ -54,11 +54,11 @@
 		<div class="block">
 			<div class="block-body reveal">
 				<h2 class="title reveal-1">
-					<span>{{post.custom['about-title']}}</span>
-					{{post.custom['about-subtitle']}}
+					<span>{{post.get_field('about-title')}}</span>
+					{{post.get_field('about-subtitle')}}
 				</h2>
 				<div class="reveal-2">
-					{{ post.custom['about-text']|  trimextrabr | raw  | nl2br }}
+					{{ post.get_field('about-text')|  trimextrabr | raw  | nl2br }}
 				</div>
 			</div>
 		</div>
