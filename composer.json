@@ -65,7 +65,9 @@
   "prefer-stable": true,
   "extra": {
     "installer-paths": {
-      "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+      "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin",
+        "wpackagist-plugin/advanced-custom-fields", "wpackagist-plugin/contact-form-7",
+        "wpackagist-plugin/wp-mail-smtp"],
       "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
       "web/app/themes/{$name}/": ["type:wordpress-theme"]
     },
