@@ -3,6 +3,7 @@
 namespace App;
 
 use Timber\Site as TimberSite;
+use Timber\Timber;
 use Twig\Environment;
 use WP_Error;
 
@@ -27,6 +28,12 @@ class Site extends TimberSite
         add_filter('rest_authentication_errors', function ($result) {
             $this->disableAnonymousAccessforRESTAPI($result);
         });
+
+        // Activate Twig caching
+        if (class_exists('Timber') && WP_ENV === 'production') {
+            Timber::$cache = true;
+        }
+
         parent::__construct($site_name_or_id);
     }
 
