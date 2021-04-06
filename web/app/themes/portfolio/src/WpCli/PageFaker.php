@@ -17,32 +17,17 @@ if (defined('WP_CLI') && WP_CLI) {
         public function __construct()
         {
 
-            // example constructor called when plugin loads
         }
 
-        public function fake_defaults()
+        public static function fake()
         {
             $pages = DefaultsPages::getPages();
-            $this->fakeHomePage($pages['home']);
-            $this->fakeCasesStudiesIndexPage($pages['casesstudies']);
-            $this->fakeContactPage($pages['contact']);
-            
-            WP_CLI::success("Defaults pages faked!");
-            
+            self::fakeHomePage($pages['home']);
+            self::fakeCasesStudiesIndexPage($pages['casesstudies']);
+            self::fakeContactPage($pages['contact']);
         }
 
-        public function exposed_function_with_args($args, $assoc_args)
-        {
-
-            // process arguments 
-
-            // do cool stuff
-
-            // give output
-            WP_CLI::success('hello from exposed_function_with_args() !');
-        }
-
-        private function fakeHomePage($page): void
+        private static function fakeHomePage($page): void
         {
             $post_id = $page->ID;
 
@@ -60,14 +45,14 @@ if (defined('WP_CLI') && WP_CLI) {
             update_field(Home::ABOUT_TEXT, $text, $post_id);
         }
 
-        private function fakeCasesStudiesIndexPage($page): void
+        private static function fakeCasesStudiesIndexPage($page): void
         {
             $post_id = $page->ID;
 
             update_field(ListCasesStudies::SUBTITLE, 'Mes projets depuis ma sortie de l\'oeuf', $post_id);
         }
 
-        private function fakeContactPage($page): void
+        private static function fakeContactPage($page): void
         {
             $post_id = $page->ID;
 

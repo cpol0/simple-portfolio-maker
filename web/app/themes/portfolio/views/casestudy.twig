@@ -9,13 +9,14 @@
 
 		{% for i in 0..(constant('Portfolio\\ACFfields\\CaseStudy::MAX_BLOCK_ALLOWED')-1) %}
 			{% set blockType = post.get_field("type#{i}") %}
-			{% set title = post.get_field("title#{i}") %}
-			{% set body = post.get_field("block#{i}") %}
-
-			{% set class = 'work-block' | col(blockType) | reveal(i) %}
-			<div class="{{class}}">
-				{% include "parts/block.twig" %}
-			</div>
+			{% if blockType is not null %}
+				{% set title = post.get_field("title#{i}") %}
+				{% set body = post.get_field("block#{i}") %}
+				{% set class = 'work-block' | col(blockType) | reveal(i) %}
+				<div class="{{class}}">
+					{% include "parts/block.twig" %}
+				</div>
+			{% endif %}
 		{% endfor %}
 
 		<div class="work-block mosaic">

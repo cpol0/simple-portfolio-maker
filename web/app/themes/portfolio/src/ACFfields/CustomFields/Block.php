@@ -9,6 +9,10 @@ use WordPlate\Acf\Fields\Wysiwyg;
 
 class Block
 {
+    const TYPE = 'type';
+    const TITLE = 'title';
+    const BLOCK = 'block';
+
     public static function make(?int $index = 0):array
     {
         $prevIndex = $index-1;
@@ -16,7 +20,7 @@ class Block
 
         $blockInstructions=__("All texts must be between \"p\" markers. Don't forget to justify them (alt+ctrl+j). For blocks with image, simply add the picture after the text", 'portfolio');
 
-        return [ButtonGroup::make(sprintf(__('Block %d type', 'portfolio'), $index), 'type'.$index)
+        return [ButtonGroup::make(sprintf(__('Block %d type', 'portfolio'), $index), self::TYPE.$index)
                     ->instructions(__('Select the block type you want', 'portfolio'))
                     ->choices([
                         'none' => __('None', 'portfolio'),
@@ -33,14 +37,14 @@ class Block
                     //
                     //])
                     ,
-                Text::make(sprintf(__('Title %d', 'portfolio'), $index), 'title'.$index)
+                Text::make(sprintf(__('Title %d', 'portfolio'), $index), self::TITLE.$index)
                     ->instructions(__('Add the block title.', 'portfolio'))
                     ->characterLimit(100)
                     ->conditionalLogic([
                             ConditionalLogic::if('type' . $index)->notEquals('none')
                         ])
                         ,
-                Wysiwyg::make(sprintf(__('Block %d body', 'portfolio'), $index), 'block'.$index)
+                Wysiwyg::make(sprintf(__('Block %d body', 'portfolio'), $index), self::BLOCK.$index)
                     ->instructions($blockInstructions) 
                     ->tabs('visual')
                     ->toolbar('simple')
@@ -48,7 +52,7 @@ class Block
                     ->conditionalLogic([
                         ConditionalLogic::if('type'.$index)->notEquals('none')
                     ]),
-                Wysiwyg::make(sprintf(__('Block %d - 2nd column body', 'portfolio'), $index), 'block' . $index.'-secondtextcolumn')
+                Wysiwyg::make(sprintf(__('Block %d - 2nd column body', 'portfolio'), $index), self::BLOCK. $index.'-secondtextcolumn')
                     ->instructions($blockInstructions)
                     ->tabs('visual')
                     ->toolbar('simple')

@@ -9,7 +9,8 @@ use Portfolio\ACFfields\ListCasesStudies;
 use Portfolio\Metaboxes\HighlightCaseStudy;
 use Portfolio\Migrations\DefaultsMenus;
 use Portfolio\Migrations\DefaultsPages;
-use Portfolio\WpCli\PageFaker;
+use Portfolio\WpCli\Debug;
+use Portfolio\WpCli\PortfolioFaker;
 use Timber\Timber;
 use Twig\Environment;
 use Twig\TwigFilter;
@@ -46,7 +47,9 @@ class Site extends \App\Site
 
         // CLI scripts
         if (defined('WP_CLI') && WP_CLI) {
-            WP_CLI::add_command('portfolio', PageFaker::class);
+            WP_CLI::add_command('portfolio', PortfolioFaker::class);
+            WP_CLI::add_command('customdebug', Debug::class);
+           
         }
         
     }

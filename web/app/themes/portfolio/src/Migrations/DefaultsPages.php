@@ -3,6 +3,7 @@
 namespace Portfolio\Migrations;
 
 use Exception;
+use WP_Post;
 
 class DefaultsPages
 {
@@ -80,7 +81,6 @@ class DefaultsPages
 
     public static function getPages(?array $selection=null): array
     {
-        //if(array_keys($selection,'home'))
         $homePages = get_pages(array(
             'meta_key' => '_wp_page_template',
             'meta_value' => self::HOME_TEMPLATE
@@ -103,5 +103,19 @@ class DefaultsPages
             'contact' => $contactPages[0],
             'casesstudies' => $casesStudiesIndexPages[0],
         ];
+    }
+
+    public static function getPage(string $template): WP_Post
+    {
+        $pages = get_pages(array(
+            'meta_key' => '_wp_page_template',
+            'meta_value' => $template
+        ));
+
+        if (empty($pages)){
+            throw new Exception("page with template $template does not exists");
+        }
+
+        return  $pages[0];
     }
 }
