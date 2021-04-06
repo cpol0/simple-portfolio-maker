@@ -77,4 +77,31 @@ class DefaultsPages
             echo 'can\'t create default page: ',  $e->getMessage(), "\n";
         }
     }
+
+    public static function getPages(?array $selection=null): array
+    {
+        //if(array_keys($selection,'home'))
+        $homePages = get_pages(array(
+            'meta_key' => '_wp_page_template',
+            'meta_value' => self::HOME_TEMPLATE
+        ));
+        $contactPages = get_pages(array(
+            'meta_key' => '_wp_page_template',
+            'meta_value' => self::CONTACT_TEMPLATE
+        ));
+        $casesStudiesIndexPages = get_pages(array(
+            'meta_key' => '_wp_page_template',
+            'meta_value' => self::CASESSTUDIESINDEX_TEMPLATE
+        ));
+
+        if (empty($homePages) || empty($contactPages) || empty($casesStudiesIndexPages)) {
+            throw new Exception('Default pages does not exists');
+        }
+
+        return [
+            'home' => $homePages[0],
+            'contact' => $contactPages[0],
+            'casesstudies' => $casesStudiesIndexPages[0],
+        ];
+    }
 }

@@ -8,6 +8,17 @@ use WordPlate\Acf\Location;
 
 class Home
 {
+    const WELCOME_TITLE= 'welcome-title';
+    const WELCOME_SUBTITLE = 'welcome-subtitle';
+    const SKILLS_TITLE = 'skills-title';
+    const SKILLS_SUBTITLE = 'skills-subtitle';
+    const SKILLS_TEXT = 'skills-text';
+    const WORKS_TITLE = 'works-title';
+    const WORKS_SUBTITLE = 'works-subtitle';
+    const ABOUT_TITLE = 'about-title';
+    const ABOUT_SUBTITLE = 'about-subtitle';
+    const ABOUT_TEXT = 'about-text';
+
     public static function builPageFields(): void
     {
         $homePageId = get_pages(array(
@@ -16,20 +27,20 @@ class Home
         ))[0]->ID;
         
         $welcomeFields = [
-            Text::make(__('Welcome section title', 'portfolio'), 'welcome-title')
+            Text::make(__('Welcome section title', 'portfolio'), self::WELCOME_TITLE)
             ->instructions(__('Add your name', 'portfolio'))
             ->required(),
-            Text::make(__('Welcome section subtitle', 'portfolio'), 'welcome-subtitle')
+            Text::make(__('Welcome section subtitle', 'portfolio'), self::WELCOME_SUBTITLE)
             ->instructions(__( 'Add your job', 'portfolio'))
             ->required(),
         ];
 
         $skillsFields = [
-            Text::make(__('Skills section title', 'portfolio'), 'skills-title')
+            Text::make(__('Skills section title', 'portfolio'), self::SKILLS_TITLE)
             ->required(),
-            Text::make(__('Skills section subtitle', 'portfolio'), 'skills-subtitle')
+            Text::make(__('Skills section subtitle', 'portfolio'), self::SKILLS_SUBTITLE)
             ->required(),
-            Wysiwyg::make(__('Skills description', 'portfolio'), 'skills-text')
+            Wysiwyg::make(__('Skills description', 'portfolio'), self::SKILLS_TEXT)
             ->instructions('Describe your skills')
             ->mediaUpload(false)
             ->tabs('visual')
@@ -37,18 +48,18 @@ class Home
             ->required(),
         ];
         $works = [
-            Text::make(__('Cases studies section title', 'portfolio'), 'works-title')
+            Text::make(__('Cases studies section title', 'portfolio'), self::WORKS_TITLE)
             ->required(),
-            Text::make(__('Cases studies section subtitle', 'portfolio'), 'works-subtitle')
+            Text::make(__('Cases studies section subtitle', 'portfolio'), self::WORKS_SUBTITLE)
             ->required(),
         ];
 
         $about = [
-            Text::make(__('About section title', 'portfolio'), 'about-title')
+            Text::make(__('About section title', 'portfolio'), self::ABOUT_TITLE)
             ->required(),
-            Text::make(__('About section subtitle', 'portfolio'), 'about-subtitle')
+            Text::make(__('About section subtitle', 'portfolio'), self::ABOUT_SUBTITLE)
             ->required(),
-            Wysiwyg::make(__('About section body', 'portfolio'), 'about-text')
+            Wysiwyg::make(__('About section body', 'portfolio'), self::ABOUT_TEXT)
             ->instructions(__('Describe yourself', 'portfolio'))
             ->mediaUpload(false)
             ->tabs('visual')

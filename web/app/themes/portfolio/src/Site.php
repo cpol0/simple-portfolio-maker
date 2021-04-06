@@ -8,12 +8,13 @@ use Portfolio\ACFfields\Home;
 use Portfolio\ACFfields\ListCasesStudies;
 use Portfolio\Metaboxes\HighlightCaseStudy;
 use Portfolio\Migrations\DefaultsMenus;
-use Portfolio\Migrations\DefaultsPage;
 use Portfolio\Migrations\DefaultsPages;
+use Portfolio\WpCli\PageFaker;
 use Timber\Timber;
 use Twig\Environment;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
+use WP_CLI;
 
 class Site extends \App\Site
 {    
@@ -42,6 +43,12 @@ class Site extends \App\Site
         /* add_filter('wpcf7_load_js', '__return_false'); Temporary disabled, see also contact.php
         add_filter('wpcf7_load_css', '__return_false'); */
         HighlightCaseStudy::register();
+
+        // CLI scripts
+        if (defined('WP_CLI') && WP_CLI) {
+            WP_CLI::add_command('portfolio', PageFaker::class);
+        }
+        
     }
     
     /**

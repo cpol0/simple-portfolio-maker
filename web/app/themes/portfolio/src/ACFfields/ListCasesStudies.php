@@ -8,6 +8,8 @@ use WordPlate\Acf\Location;
 
 class ListCasesStudies
 {
+    const SUBTITLE = 'subtitle';
+
     public static function buildPageFields(): void
     {
         $pageId = get_pages(array(
@@ -16,7 +18,7 @@ class ListCasesStudies
         ))[0]->ID;
         
         $fields = [
-            Text::make(__('Subtitle', 'portfolio'), 'subtitle')
+            Text::make(__('Subtitle', 'portfolio'), self::SUBTITLE)
             ->required(),
         ];
 

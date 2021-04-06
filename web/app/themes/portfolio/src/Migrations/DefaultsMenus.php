@@ -14,27 +14,10 @@ class DefaultsMenus
 
     public function registerMenus()
     {
-
-        $homePages = get_pages(array(
-            'meta_key' => '_wp_page_template',
-            'meta_value' => DefaultsPages::HOME_TEMPLATE
-        ));
-        $contactPages = get_pages(array(
-            'meta_key' => '_wp_page_template',
-            'meta_value' => DefaultsPages::CONTACT_TEMPLATE
-        ));
-        $casesStudiesIndexPages = get_pages(array(
-            'meta_key' => '_wp_page_template',
-            'meta_value' => DefaultsPages::CASESSTUDIESINDEX_TEMPLATE
-        ));
-
-        if(!empty($homePages) && !empty($contactPages) && !empty($casesStudiesIndexPages)){
-            $homePage = $homePages[0];
-            $contactPage = $contactPages[0];
-            $casesStudiesIndexPage = $casesStudiesIndexPages[0];
-        } else{
-            throw new Exception('Default pages does not exists');
-        }
+        $pages = DefaultsPages::getPages();
+        $homePage = $pages['home'];
+        $contactPage = $pages['contact'];
+        $casesStudiesIndexPage = $pages['casesstudies'];
 
         $menus = [
             __('Main menu', 'portfolio') => [
