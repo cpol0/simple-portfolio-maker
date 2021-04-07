@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: portfolio\n"
-"POT-Creation-Date: 2021-04-05 10:31+0200\n"
+"POT-Creation-Date: 2021-04-10 18:20+0200\n"
 "PO-Revision-Date: 2021-04-04 14:51+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -16,171 +16,183 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_n;_e\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: src/ACFfields/CaseStudy.php:22 src/ACFfields/Contact.php:18
-#: src/ACFfields/ListCasesStudies.php:19
+#: src/ACFfields/CaseStudy.php:27 src/ACFfields/Contact.php:20
+#: src/ACFfields/ListCasesStudies.php:21
 msgid "Subtitle"
 msgstr ""
 
-#: src/ACFfields/CaseStudy.php:23
+#: src/ACFfields/CaseStudy.php:28
 msgid "Add the subtitle."
 msgstr ""
 
-#: src/ACFfields/CaseStudy.php:29
+#: src/ACFfields/CaseStudy.php:34
 msgid "Tags title"
 msgstr ""
 
-#: src/ACFfields/CaseStudy.php:30
+#: src/ACFfields/CaseStudy.php:35
 msgid "Add the title."
 msgstr ""
 
-#: src/ACFfields/CaseStudy.php:33
+#: src/ACFfields/CaseStudy.php:38
 msgid "Tags"
 msgstr ""
 
-#: src/ACFfields/CaseStudy.php:34
+#: src/ACFfields/CaseStudy.php:39
 msgid "Add the tags with a list of links"
 msgstr ""
 
-#: src/ACFfields/CaseStudy.php:42
+#: src/ACFfields/CaseStudy.php:47
 msgid "Main technology"
 msgstr ""
 
-#: src/ACFfields/CaseStudy.php:43
+#: src/ACFfields/CaseStudy.php:48
 msgid "Add the main techno used."
 msgstr ""
 
-#: src/ACFfields/CaseStudy.php:49
+#: src/ACFfields/CaseStudy.php:54
 msgid "Cases studies index page"
 msgstr ""
 
-#: src/ACFfields/CaseStudy.php:50
+#: src/ACFfields/CaseStudy.php:55
 msgid "Please select work index page"
 msgstr ""
 
-#: src/ACFfields/CustomFields/Block.php:17
+#: src/ACFfields/CustomFields/Block.php:21
 msgid ""
 "All texts must be between \"p\" markers. Don't forget to justify them (alt"
 "+ctrl+j). For blocks with image, simply add the picture after the text"
 msgstr ""
 
-#: src/ACFfields/CustomFields/Block.php:19
+#: src/ACFfields/CustomFields/Block.php:23
 #, php-format
 msgid "Block %d type"
 msgstr ""
 
-#: src/ACFfields/CustomFields/Block.php:20
+#: src/ACFfields/CustomFields/Block.php:24
 msgid "Select the block type you want"
 msgstr ""
 
-#: src/ACFfields/CustomFields/Block.php:22
+#: src/ACFfields/CustomFields/Block.php:26
 msgid "None"
 msgstr ""
 
-#: src/ACFfields/CustomFields/Block.php:23
+#: src/ACFfields/CustomFields/Block.php:27
 msgid "Full text"
 msgstr ""
 
-#: src/ACFfields/CustomFields/Block.php:24
+#: src/ACFfields/CustomFields/Block.php:28
 msgid "2 text columns"
 msgstr ""
 
-#: src/ACFfields/CustomFields/Block.php:25
+#: src/ACFfields/CustomFields/Block.php:29
 msgid "Block text right"
 msgstr ""
 
-#: src/ACFfields/CustomFields/Block.php:26
+#: src/ACFfields/CustomFields/Block.php:30
 msgid "Block text left"
 msgstr ""
 
-#: src/ACFfields/CustomFields/Block.php:37
+#: src/ACFfields/CustomFields/Block.php:40
 #, php-format
 msgid "Title %d"
 msgstr ""
 
-#: src/ACFfields/CustomFields/Block.php:38
+#: src/ACFfields/CustomFields/Block.php:41
 msgid "Add the block title."
 msgstr ""
 
-#: src/ACFfields/CustomFields/Block.php:44
+#: src/ACFfields/CustomFields/Block.php:47
 #, php-format
 msgid "Block %d body"
 msgstr ""
 
-#: src/ACFfields/CustomFields/Block.php:52
+#: src/ACFfields/CustomFields/Block.php:55
 #, php-format
 msgid "Block %d - 2nd column body"
 msgstr ""
 
-#: src/ACFfields/CustomFields/Mosaic.php:13
+#: src/ACFfields/CustomFields/Mosaic.php:16
 msgid "Large mosaic image"
 msgstr ""
 
-#: src/ACFfields/CustomFields/Mosaic.php:14
+#: src/ACFfields/CustomFields/Mosaic.php:17
 msgid "Add an image in at least 500x600px and only in the formats"
 msgstr ""
 
-#: src/ACFfields/CustomFields/Mosaic.php:19
+#: src/ACFfields/CustomFields/Mosaic.php:22
 msgid "Small mosaic image 1"
 msgstr ""
 
-#: src/ACFfields/CustomFields/Mosaic.php:20
-#: src/ACFfields/CustomFields/Mosaic.php:26
+#: src/ACFfields/CustomFields/Mosaic.php:23
+#: src/ACFfields/CustomFields/Mosaic.php:29
 msgid "Add an image in at least 500x288px and only in the formats"
 msgstr ""
 
-#: src/ACFfields/CustomFields/Mosaic.php:25
+#: src/ACFfields/CustomFields/Mosaic.php:28
 msgid "Small mosaic image 2"
 msgstr ""
 
-#: src/ACFfields/Home.php:19
+#: src/ACFfields/Home.php:32
 msgid "Welcome section title"
 msgstr ""
 
-#: src/ACFfields/Home.php:20
+#: src/ACFfields/Home.php:33
 msgid "Add your name"
 msgstr ""
 
-#: src/ACFfields/Home.php:22
+#: src/ACFfields/Home.php:35
 msgid "Welcome section subtitle"
 msgstr ""
 
-#: src/ACFfields/Home.php:23
+#: src/ACFfields/Home.php:36
 msgid "Add your job"
 msgstr ""
 
-#: src/ACFfields/Home.php:28
+#: src/ACFfields/Home.php:41
 msgid "Skills section title"
 msgstr ""
 
-#: src/ACFfields/Home.php:30
+#: src/ACFfields/Home.php:43
 msgid "Skills section subtitle"
 msgstr ""
 
-#: src/ACFfields/Home.php:32
+#: src/ACFfields/Home.php:45
 msgid "Skills description"
 msgstr ""
 
-#: src/ACFfields/Home.php:40
-msgid "Cases studies section title"
-msgstr ""
-
-#: src/ACFfields/Home.php:42
-msgid "Cases studies section subtitle"
-msgstr ""
-
-#: src/ACFfields/Home.php:47
-msgid "About section title"
-msgstr ""
-
-#: src/ACFfields/Home.php:49
-msgid "About section subtitle"
+#: src/ACFfields/Home.php:46
+msgid "Describe your skills"
 msgstr ""
 
 #: src/ACFfields/Home.php:51
-msgid "About section body"
+msgid "Skills tags"
 msgstr ""
 
 #: src/ACFfields/Home.php:52
+msgid "Describe your skills with tags with list of links"
+msgstr ""
+
+#: src/ACFfields/Home.php:61
+msgid "Cases studies section title"
+msgstr ""
+
+#: src/ACFfields/Home.php:63
+msgid "Cases studies section subtitle"
+msgstr ""
+
+#: src/ACFfields/Home.php:68
+msgid "About section title"
+msgstr ""
+
+#: src/ACFfields/Home.php:70
+msgid "About section subtitle"
+msgstr ""
+
+#: src/ACFfields/Home.php:72
+msgid "About section body"
+msgstr ""
+
+#: src/ACFfields/Home.php:73
 msgid "Describe yourself"
 msgstr ""
 
@@ -192,110 +204,122 @@ msgstr ""
 msgid "Highlight this case study?"
 msgstr ""
 
-#: src/Site.php:50
+#: src/Migrations/DefaultsMenus.php:23 src/Site.php:75
 msgid "Main menu"
 msgstr ""
 
-#: src/Site.php:51
+#: src/Migrations/DefaultsMenus.php:35 src/Site.php:76
 msgid "Logo"
 msgstr ""
 
-#: src/Site.php:52
+#: src/Migrations/DefaultsMenus.php:45 src/Site.php:77
 msgid "Social Medias"
 msgstr ""
 
-#: src/Site.php:113
+#: src/Migrations/DefaultsPages.php:22
+msgid "Home page"
+msgstr ""
+
+#: src/Migrations/DefaultsPages.php:35
+msgid "Contact me"
+msgstr ""
+
+#: src/Migrations/DefaultsPages.php:45
+msgid "My cases studies"
+msgstr ""
+
+#: src/Site.php:138
 msgid "Case studies"
 msgstr ""
 
-#: src/Site.php:116 src/Site.php:117
+#: src/Site.php:141 src/Site.php:142
 msgid "Case study"
 msgstr ""
 
-#: src/Site.php:118
+#: src/Site.php:143
 msgid "Edit case study"
 msgstr ""
 
-#: src/Site.php:119
+#: src/Site.php:144
 msgid "New case study"
 msgstr ""
 
-#: src/Site.php:120
+#: src/Site.php:145
 msgid "View case study"
 msgstr ""
 
-#: src/Site.php:121
+#: src/Site.php:146
 msgid "View cases studies"
 msgstr ""
 
-#: src/Site.php:122
+#: src/Site.php:147
 msgid "Search case studies"
 msgstr ""
 
-#: src/Site.php:123
+#: src/Site.php:148
 msgid "No case studies found."
 msgstr ""
 
-#: src/Site.php:124
+#: src/Site.php:149
 msgid "No case studies found in Trash"
 msgstr ""
 
-#: src/Site.php:125
+#: src/Site.php:150
 msgid "All cases studies"
 msgstr ""
 
-#: src/Site.php:126
+#: src/Site.php:151
 msgid "Case study archive"
 msgstr ""
 
-#: src/Site.php:127
+#: src/Site.php:152
 msgid "Case study attributes"
 msgstr ""
 
-#: src/Site.php:128
+#: src/Site.php:153
 msgid "Insert into case study"
 msgstr ""
 
-#: src/Site.php:129
+#: src/Site.php:154
 msgid "Uploaded to this case study"
 msgstr ""
 
-#: src/Site.php:130
+#: src/Site.php:155
 msgid "Filter cases studies list"
 msgstr ""
 
-#: src/Site.php:131
+#: src/Site.php:156
 msgid "Cases studies list navigation"
 msgstr ""
 
-#: src/Site.php:132
+#: src/Site.php:157
 msgid "Cases studies list"
 msgstr ""
 
-#: src/Site.php:133
+#: src/Site.php:158
 msgid "Case study published."
 msgstr ""
 
-#: src/Site.php:134
+#: src/Site.php:159
 msgid "Case study published privately."
 msgstr ""
 
-#: src/Site.php:135
+#: src/Site.php:160
 msgid "Case study reverted to draft."
 msgstr ""
 
-#: src/Site.php:136
+#: src/Site.php:161
 msgid "Case study scheduled."
 msgstr ""
 
-#: src/Site.php:137
+#: src/Site.php:162
 msgid "Case study updated."
 msgstr ""
 
-#: src/Site.php:144
+#: src/Site.php:170
 msgid "case-study"
 msgstr ""
 
-#: src/Site.php:164
+#: src/Site.php:190
 msgid "Highlighted"
 msgstr ""

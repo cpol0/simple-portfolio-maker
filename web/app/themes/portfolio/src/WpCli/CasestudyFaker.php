@@ -43,7 +43,7 @@ class CasestudyFaker
         /* Now generate the cases studies */
         for ($i = 0; $i < self::MAX; $i++) {
 
-            $title = "Étude n°$i";
+            $title = "Case study n°$i";
             $post_id = self::makeCaseStudy([
                 'post_title'     => $title,
                 'post_name'      => sanitize_text_field($title),
@@ -93,7 +93,7 @@ class CasestudyFaker
     private static function fakeCaseStudy(int $post_id, int $index, WP_Post $indexPage): void
     {
         /* Fake block 0 */
-        update_field(CaseStudy::SUBTITLE, 'Ici le sous titre', $post_id);
+        update_field(CaseStudy::SUBTITLE, 'Here the subtitle', $post_id);
         update_field(Block::TYPE . '0', 'fulltext', $post_id);
         $text = Timber::compile('fake/casesstudies/fulltext.twig');
         update_field(Block::BLOCK . '0', $text, $post_id);
@@ -105,14 +105,14 @@ class CasestudyFaker
             case 3:
                 /* Set the blocks 0,1,2,3 for 4th case study */
                 update_field(Block::TYPE . '3', 'blocktextleft', $post_id);
-                update_field(Block::TITLE . '3', 'Texte à gauche', $post_id);
+                update_field(Block::TITLE . '3', 'Left text', $post_id);
                 $attachId = self::getRandomImagesId()[0];
                 $text = Timber::compile('fake/casesstudies/blocktextright.twig', ['imageSrc' => wp_get_attachment_image_src($attachId, 'block')[0]]);
                 update_field(Block::BLOCK . '3', $text, $post_id);
             case 2:
                 /* Set the blocks 0,1,2 for 3rd case study */
                 update_field(Block::TYPE . '2','2textcolumns',$post_id);
-                update_field(Block::TITLE . '2', '2 colonnes de texte', $post_id);
+                update_field(Block::TITLE . '2', '2 text columns', $post_id);
                 $attachId = self::getRandomImagesId()[0];
                 $text = Timber::compile('fake/casesstudies/2textcolumns.twig', ['imageSrc' => wp_get_attachment_image_src($attachId, 'block')[0]]);
                 update_field(Block::BLOCK . '2', $text, $post_id);
@@ -120,7 +120,7 @@ class CasestudyFaker
             case 1:
                 /* Set the blocks 0,1 for 2nd case study */
                 update_field(Block::TYPE . '1', 'blocktextright', $post_id);
-                update_field(Block::TITLE . '1', 'Texte à droite', $post_id);
+                update_field(Block::TITLE . '1', 'Right text', $post_id);
                 $attachId = self::getRandomImagesId()[0];
                 $text = Timber::compile('fake/casesstudies/blocktextright.twig', ['imageSrc' => wp_get_attachment_image_src($attachId, 'block')[0]]);
                 update_field(Block::BLOCK . '1', $text, $post_id);
@@ -146,7 +146,7 @@ class CasestudyFaker
         set_post_thumbnail($post_id, $attachId);
 
         /* Fake technos */
-        update_field(CaseStudy::TAGS_TITLE, 'Techno utilisées', $post_id);
+        update_field(CaseStudy::TAGS_TITLE, 'Lib used', $post_id);
         $text = Timber::compile('fake/casesstudies/techno.twig');
         update_field(CaseStudy::TAGS, $text, $post_id);
 

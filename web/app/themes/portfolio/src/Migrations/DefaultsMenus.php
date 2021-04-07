@@ -25,7 +25,7 @@ class DefaultsMenus
                 'menu_items' => [
                     'index' => $casesStudiesIndexPage,
                     'about' => [
-                        'url' => 'http://localhost:8000/#about', /* TODO: voir ce qui cloche avec site_url() */
+                        'url' => get_home_url().'/#about',
                         'navigationTitle' => 'About',
                         'css' => '',
                     ],
@@ -36,7 +36,7 @@ class DefaultsMenus
                 'id' => 'logo',
                 'menu_items' => [
                     'home' => [
-                        'url' => 'http://localhost:8000', /* TODO: voir ce qui cloche avec site_url() */
+                        'url' => get_home_url(),
                         'navigationTitle' => '<i class="fas fa-genderless"></i>',
                         'css' => '',
                     ],

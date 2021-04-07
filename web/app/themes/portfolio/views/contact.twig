@@ -15,12 +15,14 @@
                 {# Copy paste here your contact-form 7 shortcode, then add id & class #}
                 [contact-form-7 id="118" title="Contact form 2" html_id="contact-form" html_class="contact-form"]
             {% endfilter %}
+			{% if local_dev == 'development' %}
+				<p style="border: 1px solid red;padding:10px;border-radius:10px;">
+					<i class="fas fa-exclamation-triangle"></i> You are in development mode, please see 'contact.twig' file for instructions about the contact form settings
+				<p>
+			{% endif %}
 		</div>
 	</div>
 </section>
-
-
-
 
 {% endblock %}
 

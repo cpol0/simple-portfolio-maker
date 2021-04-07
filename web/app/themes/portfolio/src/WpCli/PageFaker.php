@@ -31,16 +31,16 @@ if (defined('WP_CLI') && WP_CLI) {
         {
             $post_id = $page->ID;
 
-            update_field(Home::WELCOME_TITLE, 'Caliméro!!!', $post_id);
+            update_field(Home::WELCOME_TITLE, 'Your name', $post_id);
             update_field(Home::WELCOME_SUBTITLE, 'Développeur web null stack', $post_id);
-            update_field(Home::SKILLS_TITLE, 'Mes compétences', $post_id);
-            update_field(Home::SKILLS_SUBTITLE, 'Développeur 0 stack', $post_id);
+            update_field(Home::SKILLS_TITLE, 'My Skills', $post_id);
+            update_field(Home::SKILLS_SUBTITLE, '0 stack developer', $post_id);
             $text = Timber::compile('fake/home/skills-text.twig');
             update_field(Home::SKILLS_TEXT, $text, $post_id);
-            update_field(Home::WORKS_TITLE, 'Réalisations', $post_id);
-            update_field(Home::WORKS_SUBTITLE, 'Quelques exemples', $post_id);
-            update_field(Home::ABOUT_TITLE, 'Mon Parcours', $post_id);
-            update_field(Home::ABOUT_SUBTITLE, 'Formation & Expérience', $post_id);
+            update_field(Home::WORKS_TITLE, 'Cases studies', $post_id);
+            update_field(Home::WORKS_SUBTITLE, 'Some examples', $post_id);
+            update_field(Home::ABOUT_TITLE, 'About me', $post_id);
+            update_field(Home::ABOUT_SUBTITLE, 'Experience', $post_id);
             $text = Timber::compile('fake/home/about-text.twig');
             update_field(Home::ABOUT_TEXT, $text, $post_id);
         }
@@ -49,14 +49,14 @@ if (defined('WP_CLI') && WP_CLI) {
         {
             $post_id = $page->ID;
 
-            update_field(ListCasesStudies::SUBTITLE, 'Mes projets depuis ma sortie de l\'oeuf', $post_id);
+            update_field(ListCasesStudies::SUBTITLE, 'Cases studies', $post_id);
         }
 
         private static function fakeContactPage($page): void
         {
             $post_id = $page->ID;
 
-            update_field(Contact::SUBTITLE, 'Me faire coucou', $post_id);
+            update_field(Contact::SUBTITLE, 'Contact me', $post_id);
         }
 
     }

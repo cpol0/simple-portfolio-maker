@@ -41,8 +41,8 @@ class Site extends TimberSite
     {
         wp_register_style('icons', "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css", []);
         wp_register_style('font_inconsolata', "https://fonts.googleapis.com/css2?family=Inconsolata&display=swap", []);
-        wp_register_style('main', /* get_stylesheet_directory() . */ '/../app/themes/portfolio/assets/app.css', []);
-        wp_register_script('main', /* get_stylesheet_directory(). */ '/../app/themes/portfolio/assets/app.js', [], false, true);
+        wp_register_style('main', get_template_directory_uri() . '/assets/app.css', []); 
+        wp_register_script('main', get_template_directory_uri() . '/assets/app.js', [], false, true);
         wp_enqueue_style('main');
         wp_enqueue_style('font_inconsolata');
         wp_enqueue_style('icons');

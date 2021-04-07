@@ -20,12 +20,15 @@ class DefaultsPages
     {
         if(!$this->pageExist(self::HOME_TEMPLATE)){
             $title = __('Home page', 'portfolio');
-            $this->makePage([
+            $pageId = $this->makePage([
                 'post_title'     => $title,
                 'post_name'      => sanitize_text_field($title),
                 'post_content'   => 'This is the home page. Feel free to edit this page.',
                 'meta_input'    => ['_wp_page_template' => self::HOME_TEMPLATE]
             ]);
+            /* Set home page as homepage */
+            update_option('page_on_front', $pageId);
+            update_option('show_on_front', 'page');
         }
 
         if(!$this->pageExist(self::CONTACT_TEMPLATE)){
@@ -73,7 +76,7 @@ class DefaultsPages
         }
 
         try{
-            return $page_id = wp_insert_post($params); 
+            return wp_insert_post($params); 
         } catch(Exception $e){
             echo 'can\'t create default page: ',  $e->getMessage(), "\n";
         }

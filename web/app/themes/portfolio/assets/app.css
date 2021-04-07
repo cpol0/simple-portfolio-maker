@@ -124,6 +124,7 @@ img {
 
 .home-section, .cv-section{
     padding: 30px 0 30px 0;
+    font-size: 1.2rem;
 }
 
 .container-small {
@@ -526,18 +527,28 @@ input:focus,/* textarea */.your-message:focus{
     color:grey;
 }
 
-.tags {
+/* Tags */
+
+.tags, .skills {
   list-style: none;
   margin: 0;
   overflow: hidden; 
   padding: 0;
 }
 
-.tags li {
+.tags li, .skills li {
   float: left; 
 }
 
-/* Tags */
+.skills {
+    margin-top: 30px;
+}
+
+.skills li {
+    color: #C89446;
+    padding-right: 10px;
+}
+
 
 .tag {
   background: #eee;

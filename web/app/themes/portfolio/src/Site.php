@@ -28,9 +28,9 @@ class Site extends \App\Site
     public function __construct($site_name_or_id = null)
     {
         parent::__construct($site_name_or_id);
-        add_action('setup_theme', new DefaultsPages()); /* Create default pages if needed */
-        add_action('setup_theme', new DefaultsMenus()); /* Create default menus if needed */
-        add_action('init', [$this, 'registerMenus']);
+        add_action('after_switch_theme', [$this, 'defaultsPagesAndMenus']); /* Create default pages if needed */
+        add_action('after_switch_theme', [$this, 'defaultsPagesAndMenus']); /* Create default menus if needed */
+        add_action('after_setup_theme', [$this, 'registerMenus']);
         add_action('init', [$this, 'registerPostTypes']);
         add_action('init', [$this, 'registerImages']);
         add_filter('timber/twig', [$this, 'extendTwig']);
@@ -52,6 +52,18 @@ class Site extends \App\Site
            
         }
         
+    }
+
+    /**
+     * defaultsPagesAndMenus
+     * Create default pages & menus if needed
+     *
+     * @return void
+     */
+    public function defaultsPagesAndMenus(): void
+    {
+        new DefaultsPages();
+        new DefaultsMenus();
     }
     
     /**
@@ -126,7 +138,7 @@ class Site extends \App\Site
     {
         register_post_type('casestudy', [
             'label' => __('Case studies', 'portfolio'),
-            'menu_icon' => 'dashicons-hammer',
+            'menu_icon' => 'dashicons-grid-view',
             'labels' => [
                 'name'                     => __('Case study', 'portfolio'),
                 'singular_name'            => __('Case study', 'portfolio'),
@@ -155,6 +167,7 @@ class Site extends \App\Site
             'hierarchical' => false,
             'exclude_from_search' => false,
             'has_archive' => true,
+            'menu_position' => 4,
             'rewrite'     => array(
                 'slug' => __('case-study', 'portfolio'),
             ),
@@ -207,6 +220,7 @@ class Site extends \App\Site
         $twig->addFilter(new TwigFilter('setTitle', ['Portfolio\Twig\Block', 'ish2']));
         $twig->addFilter(new TwigFilter('trimextrabr', ['Portfolio\Twig\Block', 'trimExtraBR']));
         $twig->addFilter(new TwigFilter('technotags', ['Portfolio\Twig\Block', 'technoTags']));
+        $twig->addFilter(new TwigFilter('skillstags', ['Portfolio\Twig\Block', 'skillsTags']));
         $twig->addFunction(new TwigFunction('cutOffBody', ['Portfolio\Twig\Block', 'cutOffBody']));
         return $twig;
     }

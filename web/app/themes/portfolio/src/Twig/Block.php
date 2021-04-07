@@ -103,11 +103,27 @@ class Block
      * Add classes to fit the CSS
      *
      * @param  mixed $list
-     * @return void
+     * @return string
      */
-    public static function technoTags(string $list)
+    public static function technoTags(string $list): string
     {
         $list = str_replace('<ul>', '<ul class="tags">', $list);
         return str_replace('<a', '<a class="tag"', $list);
+    }
+
+    /**
+     * skillsTags
+     * Add classes to fit the CSS
+     *
+     * @param  mixed $list
+     * @return string|null
+     */
+    public static function skillsTags(?string $list=null): ?string
+    {
+        if($list === null){
+            return null;
+        }
+        $list = str_replace('<ul>', '<ul class="skills">', $list);
+        return str_replace('<a', '<a class="skill"', $list);
     }
 }
