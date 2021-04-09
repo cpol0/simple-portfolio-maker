@@ -50,7 +50,9 @@
     "wpackagist-plugin/advanced-custom-fields": "^5.9",
     "wordplate/acf": "^9.1",
     "wpackagist-plugin/contact-form-7": "^5.4",
-    "wpackagist-plugin/wp-mail-smtp": "^2.7"
+    "wpackagist-plugin/wp-mail-smtp": "^2.7",
+    "wpackagist-plugin/wordpress-seo": "^16.1",
+    "wpackagist-plugin/acf-content-analysis-for-yoast-seo": "^3.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.5.8",
