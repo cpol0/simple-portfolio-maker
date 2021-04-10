@@ -41,8 +41,7 @@ class Site extends \App\Site
             load_theme_textdomain('portfolio', get_template_directory() . '/languages');
         });
         add_filter('wpcf7_autop_or_not', '__return_false'); /* Remove extra <p> which lead to broken CSS grid */
-        /* add_filter('wpcf7_load_js', '__return_false'); Temporary disabled, see also contact.php
-        add_filter('wpcf7_load_css', '__return_false'); */
+        /* See also removeCF7assets twig filter for CF7 assets */
         HighlightCaseStudy::register();
 
         // CLI scripts
@@ -50,8 +49,7 @@ class Site extends \App\Site
             WP_CLI::add_command('portfolio', PortfolioFaker::class);
             WP_CLI::add_command('customdebug', Debug::class);
            
-        }
-        
+        }        
     }
 
     /**
@@ -222,6 +220,7 @@ class Site extends \App\Site
         $twig->addFilter(new TwigFilter('technotags', ['Portfolio\Twig\Block', 'technoTags']));
         $twig->addFilter(new TwigFilter('skillstags', ['Portfolio\Twig\Block', 'skillsTags']));
         $twig->addFunction(new TwigFunction('cutOffBody', ['Portfolio\Twig\Block', 'cutOffBody']));
+        $twig->addFunction(new TwigFunction('removeCF7assets', ['Portfolio\Twig\CF7', 'removeAssets']));
         return $twig;
     }
 

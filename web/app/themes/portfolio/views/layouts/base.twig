@@ -10,6 +10,7 @@
 		<link rel="author" href="{{ site.theme.link }}/humans.txt"/>
 		<link rel="pingback" href="{{ site.pingback_url }}"/>
 		<link rel="preconnect" href="https://fonts.gstatic.com">
+		{{ removeCF7assets() }}
 		{{function('wp_head')}}
 	</head>
 
@@ -26,7 +27,6 @@
 		<main>
        {% block main %}
        {% endblock %}
-			
 			<!-- Back to Top link -->
 			<div class="back-to-top-wrapper">
 				<a href="#top" class="back-to-top-link fas fa-chevron-up" aria-label="Scroll to Top"></a>

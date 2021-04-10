@@ -16,7 +16,7 @@ class Site extends TimberSite
             wp_enqueue_style('admin_portfolio', get_template_directory_uri() . '/assets/admin.css');
         });
         add_action('wp_head', function () {
-            echo '<link rel="icon" type="image/svg" href="../app/themes/portfolio/assets/img/code.svg"/>';
+            echo '<link rel="icon" type="image/svg" href="../app/themes/portfolio/assets/img/code.svg"/>'; //TODO: mettre la bone URL ici
         });
         add_action('after_setup_theme', function () {
             add_theme_support('title-tag');
@@ -24,7 +24,7 @@ class Site extends TimberSite
             add_theme_support('html5');
             add_theme_support('post-thumbnails');
         });
-        add_action('init', [$this, 'deregisterAssets']);
+        add_action('wp_head', [$this, 'deregisterAssets']);
         add_filter('rest_authentication_errors', function ($result) {
             $this->disableAnonymousAccessforRESTAPI($result);
         });
@@ -52,7 +52,7 @@ class Site extends TimberSite
     public function deregisterAssets()
     {
         $this->disable_emojis();
-        if(!is_admin()){
+        if((!is_admin()) && (!is_page_template('contact.php'))){
             wp_deregister_script('wp-polyfill');
             wp_dequeue_script('wp-polyfill');
         }
