@@ -16,7 +16,7 @@ class Site extends TimberSite
             wp_enqueue_style('admin_portfolio', get_template_directory_uri() . '/assets/admin.css');
         });
         add_action('wp_head', function () {
-            echo '<link rel="icon" type="image/svg" href="../app/themes/portfolio/assets/img/code.svg"/>'; //TODO: mettre la bone URL ici
+            echo '<link rel="icon" type="image/svg" href="'. get_template_directory_uri(). '/assets/img/code.svg"/>';
         });
         add_action('after_setup_theme', function () {
             add_theme_support('title-tag');
