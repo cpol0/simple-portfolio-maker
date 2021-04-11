@@ -1,115 +1,139 @@
-<p align="center">
-  <a href="https://roots.io/bedrock/">
-    <img alt="Bedrock" src="https://cdn.roots.io/app/uploads/logo-bedrock.svg" height="100">
-  </a>
-</p>
-
-<p align="center">
-  <a href="LICENSE.md">
-    <img alt="MIT License" src="https://img.shields.io/github/license/roots/bedrock?color=%23525ddc&style=flat-square" />
-  </a>
-
-  <a href="https://packagist.org/packages/roots/bedrock">
-    <img alt="Packagist" src="https://img.shields.io/packagist/v/roots/bedrock.svg?style=flat-square" />
-  </a>
-
-  <a href="https://circleci.com/gh/roots/bedrock">
-    <img alt="Build Status" src="https://img.shields.io/circleci/build/gh/roots/bedrock?style=flat-square" />
-  </a>
-
-  <a href="https://twitter.com/rootswp">
-    <img alt="Follow Roots" src="https://img.shields.io/twitter/follow/rootswp.svg?style=flat-square&color=1da1f2" />
-  </a>
-</p>
-
-<p align="center">
-  <strong>A modern WordPress stack</strong>
-  <br />
-  Built with ❤️
-</p>
-
-<p align="center">
-  <a href="https://roots.io">Official Website</a> | <a href="https://roots.io/docs/bedrock/master/installation/">Documentation</a> | <a href="CHANGELOG.md">Change Log</a>
-</p>
-
-## Supporting
-
-**Bedrock** is an open source project and completely free to use.
-
-However, the amount of effort needed to maintain and develop new features and products within the Roots ecosystem is not sustainable without proper financial backing. If you have the capability, please consider donating using the links below:
-
-<div align="center">
-
-[![Donate via Patreon](https://img.shields.io/badge/donate-patreon-orange.svg?style=flat-square&logo=patreon")](https://www.patreon.com/rootsdev)
-[![Donate via PayPal](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square&logo=paypal)](https://www.paypal.me/rootsdev)
-
-</div>
+# Simple Portfolio Maker
 
 ## Overview
 
-Bedrock is a modern WordPress stack that helps you get started with the best development tools and project structure.
+Simple Portfolio Maker (SPM) is (mostly) a Wordpress theme that allows you to easily build your portfolio. 
 
-Much of the philosophy behind Bedrock is inspired by the [Twelve-Factor App](http://12factor.net/) methodology including the [WordPress specific version](https://roots.io/twelve-factor-wordpress/).
+## Example
+<a href="https://pol-carre.fr">Pol's portfolio</a>
+
+ <a href="https://pol-carre.fr">
+    <img alt="Pol Carré" src="doc/img/screenshot.png" height="600">
+  </a>
 
 ## Features
 
-- Better folder structure
-- Dependency management with [Composer](https://getcomposer.org)
-- Easy WordPress configuration with environment specific files
-- Environment variables with [Dotenv](https://github.com/vlucas/phpdotenv)
-- Autoloader for mu-plugins (use regular plugins as mu-plugins)
-- Enhanced security (separated web root and secure passwords with [wp-password-bcrypt](https://github.com/roots/wp-password-bcrypt))
+- Predefined blocks which let you choose your text and images arrangement (left, right, on 2 columns, et....).
+- Delivered with SEO plugins by default
+- Contact form included
+- Home page with your highklighted cases studies
+- An index page for all your cases studies
+- Simple and sober design with easily customizable CSS sheets
+- Thanks to <a href="https://github.com/timber/timber">Timber</a>, it is very easy to adapt the html (twig files) to fit your needs.
+- Useless CSS & JS from default wordpress installation removed to speed up the site
+- Tanks to <a href="https://roots.io/bedrock/">Bedrock</a>, you also take advantage of nice features like:
+  - Better folder structure
+  - Easy WordPress configuration with environment specific files
+  - Environment variables with [Dotenv](https://github.com/vlucas/phpdotenv)
+  - Autoloader for mu-plugins (use regular plugins as mu-plugins)
+  - Enhanced security (separated web root and secure passwords with [wp-password-bcrypt](https://github.com/roots/wp-password-bcrypt))
 
 ## Requirements
 
-- PHP >= 7.1
+- PHP >= 7.4
 - Composer - [Install](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
+- If you just want to look over the theme and run a demo, [docker-compose](https://docs.docker.com/compose/install/) is also recommanded but not mandatory in production.
 
 ## Installation
 
-1. Create a new project:
+1. Clone this project
+2. Update environment variables in the `.env` file as explained [here](https://roots.io/docs/bedrock/master/installation/). You can copy paste `.env.example` to have an example.
+3. Build docker images:
    ```sh
-   $ composer create-project roots/bedrock
+   $ make build
    ```
-2. Update environment variables in the `.env` file. Wrap values that may contain non-alphanumeric characters with quotes, or they may be incorrectly parsed.
-
-- Database variables
-  - `DB_NAME` - Database name
-  - `DB_USER` - Database user
-  - `DB_PASSWORD` - Database password
-  - `DB_HOST` - Database host
-  - Optionally, you can define `DATABASE_URL` for using a DSN instead of using the variables above (e.g. `mysql://user:password@127.0.0.1:3306/db_name`)
-- `WP_ENV` - Set to environment (`development`, `staging`, `production`)
-- `WP_HOME` - Full URL to WordPress home (https://example.com)
-- `WP_SITEURL` - Full URL to WordPress including subdirectory (https://example.com/wp)
-- `AUTH_KEY`, `SECURE_AUTH_KEY`, `LOGGED_IN_KEY`, `NONCE_KEY`, `AUTH_SALT`, `SECURE_AUTH_SALT`, `LOGGED_IN_SALT`, `NONCE_SALT`
-  - Generate with [wp-cli-dotenv-command](https://github.com/aaemnnosttv/wp-cli-dotenv-command)
-  - Generate with [our WordPress salts generator](https://roots.io/salts.html)
-
-3. Add theme(s) in `web/app/themes/` as you would for a normal WordPress site
-4. Set the document root on your webserver to Bedrock's `web` folder: `/path/to/site/web/`
-5. Access WordPress admin at `https://example.com/wp/wp-admin/`
+4. Install all dependencies
+   ```sh
+   $ make install
+   ```
+5. Run docker
+   ```sh
+   $ make dev
+   ```
+6. According to the `.env` file, create your Wordpress database. By default, you can create it with PhpMyAdmin on http://localhost:8001. Defaults credentials are `root`/`root`.
+7. Finish the Wordpress installation and access to WordPress admin at http://localhost:8000
+8. In another shell, configure defaults settings for the theme:
+   ```sh
+   $ make configure
+   ```
+9. If you want to crate fake cases studies:
+   ```sh
+   $ make fake
+   ```
+10. You should have a nice portfolio now on http://localhost:8000 ! 🎉
 
 ## Documentation
 
-Bedrock documentation is available at [https://roots.io/docs/bedrock/master/installation/](https://roots.io/docs/bedrock/master/installation/).
+### Add your case studies
+
+Under "Posts", you have now a "Case study" item:
+
+![Case study entry](/doc/img/case-study-menu.png "Case study entry")
+
+You can choose the block type you want with the select box, then let's put your images and write your text:
+
+![Block type](/doc/img/block-type.png "Block type")
+
+Additionnally, you may have some mandatory fields to fill to have a nice case study to display, let yourself be guided with the instructions diplayed under each field.
+
+For a better rendering, you have to set a featured image on each case study. 
+You can also choose to highlight you case study, in this case it will be displayed on the home page.
+
+![Highlight box](/doc/img/highlight-box.png "Highlight box")
+
+
+### Contact form settings
+
+You have to set yourself some things to have a functionnal contact form.
+
+1. Copy the short code available in the Contact panel
+![CF7 short code](/doc/img/cf7-shortcode.png "CF7 short code")
+
+2. Paste it into `web/app/themes/portfolio/views/contact.twig` in the `shortcodes` block. ⚠️ Don't erase `id` & `class`!
+```twig
+{% filter shortcodes | raw %}
+{# Copy paste here your contact-form 7 shortcode, then add id & class #}
+[contact-form-7 id="118" title="Contact form 2" html_id="contact-form" html_class="contact-form"]
+{% endfilter %} 
+```
+
+3. Copy paste this code in the tab "form" of your contact form.
+```twig
+[text* your-name placeholder "Nom &amp; Prénom / Société"]
+[email* your-email placeholder "Email"]
+[textarea* your-message minlength:50 placeholder "Votre message"]
+<div>
+	<button class="btn" type="submit">
+		Envoyer le message
+	</button>
+</div>
+```
+
+![CF7 form code](/doc/img/cf7-formcode.png "CF7 form code")
+
+### Mail settings
+
+You can configue your mail settings in the "WP mail SMTP" panel.
+
+If you want to test locally emails (thanks to [Maildev](https://github.com/maildev/maildev)), please follow the guide:
+
+1. Select "Other SMTP"
+2. Settings:
+  - set `maildev` for SMTP host
+  - Encryption: `none`
+  - SMTP Port: `25`
+  - Auto TLS: `off`
+  - Authentication: `off`
+3. save settins
+4. Go to "email test" tab on the top of the page and send email
+5. You should have an email at http://localhost:1080 ! 🎉
+
+
+## License
+[CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
+
 
 ## Contributing
 
-Contributions are welcome from everyone. We have [contributing guidelines](https://github.com/roots/guidelines/blob/master/CONTRIBUTING.md) to help you get started.
+Contributions are welcome from everyone.
 
-## Bedrock sponsors
-
-Help support our open-source development efforts by [becoming a patron](https://www.patreon.com/rootsdev).
-
-<a href="https://kinsta.com/?kaid=OFDHAJIXUDIV"><img src="https://cdn.roots.io/app/uploads/kinsta.svg" alt="Kinsta" width="200" height="150"></a> <a href="https://carrot.com/"><img src="https://cdn.roots.io/app/uploads/carrot.svg" alt="Carrot" width="200" height="150"></a> <a href="https://www.c21redwood.com/"><img src="https://cdn.roots.io/app/uploads/c21redwood.svg" alt="C21 Redwood Realty" width="200" height="150"></a> <a href="https://wordpress.com/"><img src="https://cdn.roots.io/app/uploads/wordpress.svg" alt="WordPress.com" width="200" height="150"></a>
-
-## Community
-
-Keep track of development and community news.
-
-- Participate on the [Roots Discourse](https://discourse.roots.io/)
-- Follow [@rootswp on Twitter](https://twitter.com/rootswp)
-- Read and subscribe to the [Roots Blog](https://roots.io/blog/)
-- Subscribe to the [Roots Newsletter](https://roots.io/subscribe/)
-- Listen to the [Roots Radio podcast](https://roots.io/podcast/)
