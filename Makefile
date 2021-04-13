@@ -2,10 +2,11 @@ isDocker := $(shell docker info > /dev/null 2>&1 && echo 1)
 user := $(shell id -u)
 group := $(shell id -g)
 
-folder := "public_html"
-port := "22"
-destination := "user@host"
-server := "$(destination) -p $(port)"
+# Read .env file
+ifneq (,$(wildcard ./.env))
+    include .env
+    export
+endif
 
 ifeq ($(isDocker), 1)
 	dc := USER_ID=$(user) GROUP_ID=$(group) docker-compose
@@ -48,11 +49,15 @@ fake:  ## Generate fakes cases studies for the example
 
 .PHONY: deploy
 deploy: ## Deploy a new version from git
-	ssh -A $(server) 'cd $(folder) && git pull origin master && make install'
+	ssh -A ${WEB_SERVER} 'cd ${WEB_FOLDER} && git pull origin master && make install'
 
 .PHONY: push
 push: ## Push your local folder on server (only for tests purpose, prefer deploy in production)
-	rsync -avz -e "ssh -p $(port)" --progress --exclude 'web/app/uploads' . $(destination):$(folder)/
+	rsync -avz -e "ssh -p ${WEB_SSHPORT}" --progress --exclude 'web/app/uploads' . ${WEB_DESTINATION}:${WEB_FOLDER}/
+
+.PHONY: test
+test: ## test commande
+	@echo "use this test command if you want to test your makefile syntax"
 
 
 # -----------------------------------
