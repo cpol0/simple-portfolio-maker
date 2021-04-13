@@ -68,7 +68,7 @@ composer.lock: composer.json
 
 vendor/autoload.php: composer.lock
 	$(composer) install
-	$(dr) touch vendor/autoload.php
+	$(php) touch vendor/autoload.php
 
 setpermissions: #Please, don't do that in production!!!
 	chmod 777 web/app/uploads
