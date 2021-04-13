@@ -35,6 +35,10 @@ if (defined('WP_CLI') && WP_CLI) {
             update_field(Home::WELCOME_SUBTITLE, 'Développeur web null stack', $post_id);
             update_field(Home::SKILLS_TITLE, 'My Skills', $post_id);
             update_field(Home::SKILLS_SUBTITLE, '0 stack developer', $post_id);
+            update_field(Home::SKILLS_TAGS, '<ul>
+                                <li><a href="http://php.net"><i class="fab fa-php"></i></a></li>
+                                <li><a href="http://wordpress.com"><i class="fab fa-wordpress"></i></a></li>
+                        </ul>', $post_id);
             $text = Timber::compile('fake/home/skills-text.twig');
             update_field(Home::SKILLS_TEXT, $text, $post_id);
             update_field(Home::WORKS_TITLE, 'Cases studies', $post_id);

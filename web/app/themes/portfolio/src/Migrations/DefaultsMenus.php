@@ -46,12 +46,12 @@ class DefaultsMenus
                 'id' => 'footer',
                 'menu_items' => [
                     'linkedin' => [
-                        'url' => 'https://linkedin.fr', 
+                        'url' => 'https://www.linkedin.com/in/pol-carr%C3%A9/', 
                         'navigationTitle' => '<i class="fab fa-linkedin"></i>',
                         'css' => 'social-icon',
                     ],
                     'github' => [
-                        'url' => 'https://github.com',
+                        'url' => 'https://github.com/cpol0',
                         'navigationTitle' => '<i class="fab fa-github"></i>',
                         'css' => 'social-icon',
                     ],

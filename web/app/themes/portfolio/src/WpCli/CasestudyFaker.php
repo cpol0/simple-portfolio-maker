@@ -146,7 +146,7 @@ class CasestudyFaker
         set_post_thumbnail($post_id, $attachId);
 
         /* Fake technos */
-        update_field(CaseStudy::TAGS_TITLE, 'Lib used', $post_id);
+        update_field(CaseStudy::TAGS_TITLE, 'Libs used', $post_id);
         $text = Timber::compile('fake/casesstudies/techno.twig');
         update_field(CaseStudy::TAGS, $text, $post_id);
 
