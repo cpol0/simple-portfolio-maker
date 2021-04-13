@@ -2,8 +2,8 @@ RewriteEngine on
 RewriteBase /
 
 #for ssl forcing
-#RewriteCond %{HTTPS} off 
-#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTPS} off 
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 #for public
 RewriteCond %{REQUEST_URI} !^/web/
