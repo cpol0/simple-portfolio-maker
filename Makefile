@@ -49,7 +49,7 @@ fake:  ## Generate fakes cases studies for the example
 
 .PHONY: deploy
 deploy: ## Deploy a new version from git
-	ssh -A ${WEB_SERVER} 'cd ${WEB_FOLDER} && git pull origin master && make install'
+	ssh -A ${WEB_DESTINATION} -p ${WEB_SSHPORT} 'cd ${WEB_FOLDER} && git pull origin master && make install'
 
 .PHONY: push
 push: ## Push your local folder on server (only for tests purpose, prefer deploy in production)
