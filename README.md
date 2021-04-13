@@ -86,18 +86,10 @@ You can also choose to highlight you case study, in this case it will be display
 
 You have to set yourself some things to have a functionnal contact form.
 
-1. Copy the short code available in the Contact panel
+1. ⚠️ If you have several contact forms, Simple Portfolio Maker will always use the first one! (shorted by `id`)
 ![CF7 short code](/doc/img/cf7-shortcode.png "CF7 short code")
 
-2. Paste it into `web/app/themes/portfolio/views/contact.twig` in the `shortcodes` block. ⚠️ Don't erase `id` & `class`!
-```twig
-{% filter shortcodes | raw %}
-{# Copy paste here your contact-form 7 shortcode, then add id & class #}
-[contact-form-7 id="118" title="Contact form 2" html_id="contact-form" html_class="contact-form"]
-{% endfilter %} 
-```
-
-3. Copy paste this code in the tab "form" of your contact form.
+2. Copy paste this code in the tab "form" of your contact form.
 ```twig
 [text* your-name placeholder "Nom &amp; Prénom / Société"]
 [email* your-email placeholder "Email"]
