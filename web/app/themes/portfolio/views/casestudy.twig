@@ -12,7 +12,7 @@
 			{% if blockType is not null %}
 				{% set title = post.get_field("title#{i}") %}
 				{% set body = post.get_field("block#{i}") %}
-				{% set class = 'work-block' | col(blockType) | reveal(i) %}
+				{% set class = 'work-block' | reveal(i) %}
 				<div class="{{class}}">
 					{% include "parts/block.twig" %}
 				</div>
