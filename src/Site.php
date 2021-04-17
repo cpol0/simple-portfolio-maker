@@ -24,7 +24,7 @@ class Site extends TimberSite
             add_theme_support('html5');
             add_theme_support('post-thumbnails');
         });
-        add_action('wp_head', [$this, 'deregisterAssets']);
+        add_action('init', [$this, 'deregisterAssets']);
         add_filter('rest_authentication_errors', function ($result) {
             $this->disableAnonymousAccessforRESTAPI($result);
         });
