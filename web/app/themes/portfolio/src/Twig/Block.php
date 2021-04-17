@@ -92,8 +92,10 @@ class Block
             return null;
         }
 
-        $text = preg_replace('/(\s*)(?=<ul>)/', '', $text); /* Remove \r\n before <ul> */
+        $text = preg_replace('/(\s*)(?=<ul)/', '', $text); /* Remove \r\n before <ul> */
         $text = preg_replace('/(\s*)(?=<p)/', '', $text); /* Remove \r\n before <p */
+        $text = preg_replace('/(\s*)(?=<h)/', '', $text); /* Remove \r\n before <h */
+        $text = preg_replace('/(\s*)(?=<blockquote)/', '', $text); /* Remove \r\n before <h */
         return preg_replace('/(?<=<ul>|<\/li>)(\s*)(?=<\/ul>|<li>)/', '', $text); /* Remove \r\n in lists */
           
     }

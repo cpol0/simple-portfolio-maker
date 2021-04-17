@@ -244,6 +244,15 @@ img {
     transition: background-color .5s;
 }
 
+blockquote {
+position: relative;
+  padding-left: 1em;
+  border-left: 0.1em solid #C89446;
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 1.5em;
+}
+
 .work-highlight{
     margin: 40px 0 50px 0; 
 }
@@ -373,11 +382,11 @@ select option {
     margin: 0
 }
 
-.work-block a {
+.block a,.work-block a {
    color: #C89446;
 }
 
-.work-block a:hover{
+.block a:hover{
     text-decoration: underline;
 }
 
@@ -395,6 +404,10 @@ select option {
     max-width: 100%;
     height: auto;
     border-radius: 7px;
+}
+
+.mosaic  img{
+    margin-top: 0;
 }
 
 .footer{

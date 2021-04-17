@@ -24,7 +24,7 @@
                     {{post.get_field('skills-subtitle')}}
                 </h2>
 				<div class="reveal-4">
-                    {{post.get_field('skills-text') | raw}}
+					{{post.get_field('skills-text') | trimextrabr | raw | nl2br}}
 					{{post.get_field('skills-tags') | skillstags | raw}}
 
 				</div>
