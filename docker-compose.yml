@@ -70,6 +70,7 @@ services:
             - "1080:80"
         networks:
             - backend
+        command: bin/maildev --web 80 --smtp 25 --hide-extensions STARTTLS
             
 volumes:
     mariadb-data:
