@@ -41,6 +41,7 @@ class Site extends \App\Site
             load_theme_textdomain('portfolio', get_template_directory() . '/languages');
         });
         add_filter('wpcf7_autop_or_not', '__return_false'); /* Remove extra <p> which lead to broken CSS grid */
+        add_action("wpcf7_before_send_mail", [$this, 'wpcf7_antispam_fake_input'], 10, 3);
         /* See also removeCF7assets twig filter for CF7 assets */
         HighlightCaseStudy::register();
 
@@ -203,6 +204,22 @@ class Site extends \App\Site
             }
 
         }, 10, 2);
+    }
+
+    /**
+     * wpcf7_antispam_fake_input
+     *
+     * @param  mixed $cf7
+     * @param  mixed $abort
+     * @param  mixed $submission
+     * @return void
+     */
+    public function wpcf7_antispam_fake_input($cf7, &$abort, $submission)
+    {
+        /* Abort submission if fake field filled by robots */
+        if (isset($_POST['fake-field']) && $_POST['fake-field'] != '') {
+            $abort = true;
+        }
     }
 
     /**

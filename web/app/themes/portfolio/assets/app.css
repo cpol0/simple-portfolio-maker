@@ -519,6 +519,10 @@ i {
     min-height: 200px;
 }
 
+.fake-field {
+    display: none;
+}
+
 .btn {
     grid-column: 1 / 1;
 }
