@@ -519,12 +519,31 @@ i {
     min-height: 200px;
 }
 
+.math-quiz {
+    grid-column: 1 / 2;
+}
+
+.wpcf7-quiz-label{
+    color: grey;
+}
+
 .fake-field {
     display: none;
 }
 
-.btn {
+/* Force button bellow the captcha */
+.contact-form > .btn-div {
     grid-column: 1 / 1;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+/* Force output message on last grid line */
+.wpcf7 form .wpcf7-response-output{
+    margin: 0px;
+    grid-column: 1 / 1;
+    grid-row-start: 5;
+    grid-row-end: 6;
 }
 
 input,textarea{
